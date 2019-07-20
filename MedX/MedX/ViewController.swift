@@ -33,8 +33,8 @@ class ViewController: UIViewController, URLSessionDelegate {
                 signUpRequest()
             }
         }
-        let qrC = self.storyboard?.instantiateViewController(withIdentifier: "qrCode")
-        self.present(qrC!, animated: true, completion: nil)
+        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homePage")
+        self.present(homePage!, animated: true, completion: nil)
         
     }
 

@@ -13,7 +13,7 @@
         <!--Front Page View Controller-->
         <scene sceneID="H1n-pK-B43">
             <objects>
-                <viewController id="a7z-2a-USC" customClass="FrontPageViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePage" id="a7z-2a-USC" customClass="FrontPageViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sZv-ND-BGg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
