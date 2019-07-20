@@ -27,6 +27,8 @@ class ViewController: UIViewController, URLSessionDelegate {
             }
             
         }
+        let api = LethAPI()
+        fetchFile(meta:"",token:"") 
 
     }
     
@@ -192,6 +194,53 @@ class ViewController: UIViewController, URLSessionDelegate {
                 
             } catch  {
                 print("error parsing response from POST on /todos")
+                return
+            }
+        }
+        task.resume()
+    }
+    
+    func fetchFile(meta: String, token: String) {
+        let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/storage/fetch"
+        let meta1 = "QmcGHK3Ye5axzsN5dKJfSz6JbPLqrvx88d31vUyKuSNoSK"
+        // Becomes invalid eventually
+        let token1 = "eyJibG9ja2NoYWluIjoiRVRIIiwiZXRoX2FkZHJlc3MiOiIweGM5MTZDZmU1YzgzZEQ0RkMzYzNCMEJmMmVjMmQ0ZTQwMTc4Mjg3NWUiLCJpYXQiOjEwMDQ2LCJlYXQiOjExMDQ2fQ.X86hAba2Fz759fOJwRZYUHYebG9uCTRwwN4dtG1L9HNU3AdJ0d5lh6CsJrurTxTtKUb8Z8mteLter16VIf2DnAE"
+        guard let createUrl = URL(string: endpoint + "?meta=" + meta1 + "&token=" + token1) else {
+            print("Error: cannot create URL")
+            return
+        }
+        var urlRequest = URLRequest(url: createUrl)
+        urlRequest.httpMethod = "GET"
+        let input: [String: Any] = ["password": password.text!]
+        let json: Data
+        do {
+            json = try JSONSerialization.data(withJSONObject: input, options: [])
+            urlRequest.httpBody = json
+        } catch {
+            print("Error: cannot create JSON from todo")
+            return
+        }
+        
+        let session = URLSession(
+            configuration: URLSessionConfiguration.default,
+            delegate: self, // DO NOT FORGET YOUR OBJECT HERE!!
+            delegateQueue: nil)
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) in
+            guard error == nil else {
+                print("error calling POST on /todos/1")
+                print(error)
+                return
+            }
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String : Any]
+                print(json!)
+            }
+            catch {
                 return
             }
         }
