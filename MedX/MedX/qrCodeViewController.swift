@@ -1,23 +1,20 @@
 //
-//  FrontPageViewController.swift
+//  qrCodeViewController.swift
 //  MedX
 //
-//  Created by Xiangmin Zhang on 7/19/19.
+//  Created by user on 7/20/19.
 //  Copyright © 2019 user. All rights reserved.
 //
 
 import UIKit
 
-class FrontPageViewController: UIViewController {
+class qrCodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
+
         // Do any additional setup after loading the view.
     }
-    
-    
-    
     
 
     /*
