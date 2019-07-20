@@ -146,8 +146,8 @@ class ViewController: UIViewController, URLSessionDelegate {
                 self.defaults.set(token, forKey: "token")
                 print("The token is:"+(self.defaults.string(forKey: "token") ?? "not found"))
                 DispatchQueue.main.async {
-                    let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homePage")
-                    self.present(homePage!, animated: true, completion: nil)
+                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "nav")
+                    self.present(nav!, animated: true, completion: nil)
                 }
 
             } catch  {

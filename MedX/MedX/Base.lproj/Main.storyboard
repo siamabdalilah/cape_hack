@@ -120,7 +120,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="XeA-ym-UFh" kind="show" id="cU1-7T-7KM"/>
+                                    <segue destination="XeA-ym-UFh" kind="show" id="SP8-Q3-xdW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS0-ow-WWj" userLabel="ImportNewRecord">
@@ -210,7 +210,7 @@
         <!--Scanner View Controller-->
         <scene sceneID="mFt-yd-7Rl">
             <objects>
-                <viewController id="XeA-ym-UFh" customClass="QRScannerViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanner" id="XeA-ym-UFh" customClass="QRScannerViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="02t-mb-8u0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,7 +251,7 @@
         <!--Navigation Controller-->
         <scene sceneID="o5L-Wr-Ybv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Tl-vi-DKz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="5Tl-vi-DKz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B8g-K4-rD3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

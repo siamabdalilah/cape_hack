@@ -16,6 +16,10 @@ class FrontPageViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+//    @IBAction func popScanner(_ sender: UIButton) {
+//        let VC1 = self.storyboard?.instantiateViewController(withIdentifier: "scanner") as! QRScannerViewController
+//        self.navigationController!.pushViewController(VC1, animated: true)
+//    }
     
     
     
