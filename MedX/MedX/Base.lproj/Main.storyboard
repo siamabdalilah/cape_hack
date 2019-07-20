@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NPr-lE-OpX">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -88,6 +88,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkl-hQ-5dY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="362" y="128"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="Pws-mT-a1F">
+            <objects>
+                <viewController id="NPr-lE-OpX" customClass="QRScannerViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JfZ-6T-LRW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g11-ka-qoD" customClass="QRScannerView" customModule="MedX" customModuleProvider="target">
+                                <rect key="frame" x="20" y="111" width="374" height="364"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="2kW-RU-PNR"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGW-wb-arn">
+                                <rect key="frame" x="167" y="570" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ToggleScan"/>
+                                <connections>
+                                    <action selector="toggleScan:" destination="NPr-lE-OpX" eventType="touchUpInside" id="8Lb-PU-2sd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g11-ka-qoD" firstAttribute="top" secondItem="QBw-Zk-DvD" secondAttribute="top" constant="67" id="Tli-58-yn6"/>
+                            <constraint firstItem="QBw-Zk-DvD" firstAttribute="bottom" secondItem="g11-ka-qoD" secondAttribute="bottom" constant="387" id="UlR-SD-1zu"/>
+                            <constraint firstItem="QBw-Zk-DvD" firstAttribute="trailing" secondItem="g11-ka-qoD" secondAttribute="trailing" constant="20" id="VY1-dA-rwl"/>
+                            <constraint firstItem="g11-ka-qoD" firstAttribute="leading" secondItem="QBw-Zk-DvD" secondAttribute="leading" constant="20" id="x3K-AN-3Dt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QBw-Zk-DvD"/>
+                    </view>
+                    <connections>
+                        <outlet property="scannerView" destination="g11-ka-qoD" id="KgK-Zv-lKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuv-V7-KeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-143.47826086956522" y="1016.5178571428571"/>
         </scene>
     </scenes>
     <resources>
