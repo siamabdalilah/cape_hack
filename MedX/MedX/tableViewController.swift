@@ -9,8 +9,9 @@
 import UIKit
 
 class tableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    var hospital: String?
     var record = ["first","second","third", "fourth","fifth"]
+    @IBOutlet weak var toLabel: UILabel!
     
     @IBOutlet weak var recordLists: UITableView!
     
@@ -20,6 +21,7 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         recordLists.dataSource = self
         recordLists.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         recordLists.reloadData()
+        toLabel.text = "Grannting access to"+(hospital ?? "not found")
         
         // Do any additional setup after loading the view.
     }

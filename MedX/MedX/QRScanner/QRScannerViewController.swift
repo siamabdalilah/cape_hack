@@ -9,10 +9,10 @@
 import UIKit
 
 class QRScannerViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -60,8 +60,10 @@ extension QRScannerViewController: QRScannerViewDelegate{
     }
     
     func qrScanningSucceededWithCode(_ str: String?) {
-        print("Scan Succeeded")
-        print(str ?? "fml")
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "table") as! tableViewController
+            VC1.hospital = str
+        self.navigationController!.pushViewController(VC1, animated: true)
+        
     }
     
     func qrScanningDidStop() {
