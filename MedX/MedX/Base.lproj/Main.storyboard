@@ -203,6 +203,47 @@
             </objects>
             <point key="canvasLocation" x="-1074" y="792"/>
         </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="mFt-yd-7Rl">
+            <objects>
+                <viewController id="XeA-ym-UFh" customClass="QRScannerViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="02t-mb-8u0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zje-KY-ewx" customClass="QRScannerView" customModule="MedX" customModuleProvider="target">
+                                <rect key="frame" x="20" y="111" width="374" height="364"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Piy-de-0RP"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUD-iV-GqT">
+                                <rect key="frame" x="167" y="570" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ToggleScan"/>
+                                <connections>
+                                    <action selector="toggleScan:" destination="XeA-ym-UFh" eventType="touchUpInside" id="Up3-vm-CSo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zje-KY-ewx" firstAttribute="leading" secondItem="yla-Fj-ZUY" secondAttribute="leading" constant="20" id="C2s-Xz-Jdc"/>
+                            <constraint firstItem="zje-KY-ewx" firstAttribute="top" secondItem="yla-Fj-ZUY" secondAttribute="top" constant="67" id="UBN-WZ-9UP"/>
+                            <constraint firstItem="yla-Fj-ZUY" firstAttribute="trailing" secondItem="zje-KY-ewx" secondAttribute="trailing" constant="20" id="azX-f9-gjG"/>
+                            <constraint firstItem="yla-Fj-ZUY" firstAttribute="bottom" secondItem="zje-KY-ewx" secondAttribute="bottom" constant="387" id="k5c-uN-RxR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yla-Fj-ZUY"/>
+                    </view>
+                    <connections>
+                        <outlet property="scannerView" destination="zje-KY-ewx" id="dlb-31-cjq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ed4-6o-EHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-107" y="865"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MedX Icon" width="6000" height="12000"/>
