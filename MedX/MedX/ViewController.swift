@@ -8,7 +8,7 @@
 
 import UIKit
 import SQLite3
-class ViewController: UIViewController, URLSessionDelegate {
+class ViewController: UIViewController, URLSessionDelegate{
     var db : OpaquePointer?
     
     @IBOutlet weak var publicKey: UITextField!
@@ -27,6 +27,7 @@ class ViewController: UIViewController, URLSessionDelegate {
             }
             
         }
+        addFile()
 
     }
     
@@ -55,6 +56,7 @@ class ViewController: UIViewController, URLSessionDelegate {
 //    @IBAction func deleteRow(_ sender: UIButton) {
 //        deleteFromSQLite(table: "pub", value: "foo")
 //    }
+    
     func openDatabase() -> OpaquePointer? {
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("test.sqlite")
@@ -143,7 +145,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
     func signUpRequest(value: String){
-        let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
+        let endpoint: String = "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
             return
@@ -198,8 +200,68 @@ class ViewController: UIViewController, URLSessionDelegate {
         task.resume()
     }
     
+    func addFile() {
+        let data1: Data? = "{\"message\": \"Hello v2\"}".data(using: .utf8)
+        
+        var r  = URLRequest(url: URL(string: "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/storage/add")!)
+        r.httpMethod = "POST"
+        let boundary = "Boundary-\(UUID().uuidString)"
+        r.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        r.httpBody = createBody(parameters: ["file": "Hello v2", "owner": "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e", "password": "WelcomeToSirius"],
+                                boundary: boundary,
+                                data: data1!,
+                                mimeType: "application.json",
+                                filename: "hello.json")
+        
+        var response: AutoreleasingUnsafeMutablePointer<URLResponse?>? = nil
+        do {
+            let data = try NSURLConnection.sendSynchronousRequest(r, returning: response)
+            print(data)
+            guard let receivedPub = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                else {
+                    print("Could not get JSON from responseData as dictionary")
+                    return
+            }
+            print(receivedPub)
+        }
+        catch {
+            return
+        }
+        
+        
+    }
+    
+    func createBody(parameters: [String: String],
+                    boundary: String,
+                    data: Data,
+                    mimeType: String,
+                    filename: String) -> Data {
+        let body = NSMutableData()
+        
+        let boundaryPrefix = "--\(boundary)\r\n"
+        
+        for (key, value) in parameters {
+            body.appendString(boundaryPrefix)
+            body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            body.appendString("\(value)\r\n")
+        }
+        
+        body.appendString(boundaryPrefix)
+        body.appendString("Content-Disposition: form-data; name=\"file\"; filename=\"\(filename)\"\r\n")
+        body.appendString("Content-Type: \(mimeType)\r\n\r\n")
+        body.append(data)
+        body.appendString("\r\n")
+        body.appendString("--".appending(boundary.appending("--")))
+        
+        return body as Data
+    }
+    
+    
+    
+    
     func fetchFile(meta: String, token: String) {
-        let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/storage/fetch"
+        let endpoint: String = "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/storage/fetch"
         let meta1 = "QmcGHK3Ye5axzsN5dKJfSz6JbPLqrvx88d31vUyKuSNoSK"
         // Becomes invalid eventually
         let token1 = "eyJibG9ja2NoYWluIjoiRVRIIiwiZXRoX2FkZHJlc3MiOiIweGM5MTZDZmU1YzgzZEQ0RkMzYzNCMEJmMmVjMmQ0ZTQwMTc4Mjg3NWUiLCJpYXQiOjEwMDQ2LCJlYXQiOjExMDQ2fQ.X86hAba2Fz759fOJwRZYUHYebG9uCTRwwN4dtG1L9HNU3AdJ0d5lh6CsJrurTxTtKUb8Z8mteLter16VIf2DnAE"
