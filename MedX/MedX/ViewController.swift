@@ -23,7 +23,6 @@ class ViewController: UIViewController, URLSessionDelegate {
         if db != nil {
             var key = readFromSQLite(table: "pub")
             if key != "" {
-                
                 publicKey.text = key
             }
             
@@ -143,7 +142,7 @@ class ViewController: UIViewController, URLSessionDelegate {
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
-    func makeRequest(value: String){
+    func signUpRequest(value: String){
         let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
