@@ -24,18 +24,15 @@ class QRScannerViewController: UIViewController {
     }
     
     @IBAction func toggleScan(_ sender: UIButton) {
-        scannerView.isRunning ? scannerView.stopScanning() : scannerView.startScanning()
-        scannerView.isRunning ? print("started scan") : print("stopping scan")
+//        scannerView.isRunning ? scannerView.stopScanning() : scannerView.startScanning()
+//        let title = scannerView.isRunning ? "Stop":"Start"
+//        sender.setTitle(title, for: UIControl.State.normal)
+        let filep = FilePicker(coder: NSCoder())
+        filep?.pickFile()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
+    @IBOutlet weak var data: UITextView!
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,6 +49,23 @@ class QRScannerViewController: UIViewController {
         }
     }
     
+    var qrData: String? {
+        didSet {
+            data.attributedText = NSAttributedString(string: qrData ?? "nil", attributes: [:])
+        }
+    }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension QRScannerViewController: QRScannerViewDelegate{
@@ -61,7 +75,7 @@ extension QRScannerViewController: QRScannerViewDelegate{
     
     func qrScanningSucceededWithCode(_ str: String?) {
         print("Scan Succeeded")
-        print(str ?? "fml")
+        self.qrData = str ?? "NO DATA RECEIVED"
     }
     
     func qrScanningDidStop() {
