@@ -26,21 +26,19 @@ class ViewController: UIViewController, URLSessionDelegate {
     }
     
     @IBAction func signUp(sender: UIButton) {
-        if password.text != nil {
-            if publicKey != nil {
-                signInRequest()
+        if password.text != "" {
+            if publicKey.text != "" {
+                signInRequest(publicKey: publicKey.text!, password: password.text!)
             }else{
-                signUpRequest()
+                signUpRequest(password: password.text!)
             }
         }
-
-        
     }
 
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
-    func signUpRequest(){
+    func signUpRequest(password: String){
         let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
@@ -48,7 +46,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         var urlRequest = URLRequest(url: createUrl)
         urlRequest.httpMethod = "POST"
-        let input: [String: Any] = ["password": password.text!]
+        let input: [String: Any] = ["password": password]
         let json: Data
         do {
             json = try JSONSerialization.data(withJSONObject: input, options: [])
@@ -62,6 +60,7 @@ class ViewController: UIViewController, URLSessionDelegate {
             configuration: URLSessionConfiguration.default,
             delegate: self, // DO NOT FORGET YOUR OBJECT HERE!!
             delegateQueue: nil)
+        
         let task = session.dataTask(with: urlRequest) {
             (data, response, error) in
             guard error == nil else {
@@ -81,13 +80,14 @@ class ViewController: UIViewController, URLSessionDelegate {
                         print("Could not get JSON from responseData as dictionary")
                         return
                 }
+                print(receivedPub.description)
                 guard let key = receivedPub["account"] as? String else {
-
                     return
                 }
                 print("The key is: \(key)")
+                sqliteOps.instance.createTableInSQLite(tableName: "pub")
                 sqliteOps.instance.prepareAndInsertToSQLite(table: "pub", field: "key", value: key)
-
+                self.signInRequest(publicKey: sqliteOps.instance.readFromSQLite(table: "pub"), password: password)
             } catch  {
                 print("error parsing response from POST on /todos")
 
@@ -96,7 +96,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         task.resume()
     }
-    func signInRequest(){
+    func signInRequest(publicKey: String, password: String){
         let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signin"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
@@ -104,7 +104,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         var urlRequest = URLRequest(url: createUrl)
         urlRequest.httpMethod = "POST"
-        let input: [String: Any] = ["account": publicKey.text!,"password": password.text!]
+        let input: [String: Any] = ["account": publicKey,"password": password]
         let json: Data
         do {
             json = try JSONSerialization.data(withJSONObject: input, options: [])
@@ -138,6 +138,7 @@ class ViewController: UIViewController, URLSessionDelegate {
                         print("Could not get JSON from responseData as dictionary")
                         return
                 }
+                
                 guard let token = receivedPub["token"] as? String else {
                     print("cannot login")
                     return
