@@ -7,24 +7,20 @@
 //
 
 import UIKit
-
+import SQLite3
 class qrCodeViewController: UIViewController {
-
+    var db : OpaquePointer?
+    @IBOutlet weak var qrImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        QRtest()
         // Do any additional setup after loading the view.
     }
     
     func QRtest(){
-        let jsonObj = ["someKey": 42.0,
-                       "anotherKey": [
-                        "someNestedKey": true
-            ]] as [String : Any]
         
-        var QRstring = " "
-        QRstring = jsonToString(json: jsonObj as AnyObject)!
-        print("\(QRstring)")
+        var QRstring = sqliteOps.instance.readFromSQLite(table: "pub")
+        print("The key is:\(QRstring)")
         let data = QRstring.data(using: String.Encoding.ascii)
         
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
@@ -39,7 +35,7 @@ class qrCodeViewController: UIViewController {
         let context = CIContext()
         guard let cgImage = context.createCGImage(scaledQrImage, from: scaledQrImage.extent) else { return }
         let processedImage = UIImage(cgImage: cgImage)
-       // qrImage.image = processedImage
+       qrImage.image = processedImage
     }
     
     
