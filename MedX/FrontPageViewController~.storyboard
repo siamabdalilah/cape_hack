@@ -44,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <segue destination="0kq-7W-EGp" kind="show" id="iaC-2D-ZHu"/>
+                                    <segue destination="E13-xW-uly" kind="show" id="iaC-2D-ZHu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -56,11 +56,18 @@
             </objects>
             <point key="canvasLocation" x="-149.27536231884059" y="126.5625"/>
         </scene>
-        <!--FrontPageViewController-->
-        <scene sceneID="Zr1-B7-IZf">
+        <!--Front Page View Controller-->
+        <scene sceneID="o7m-ch-I3d">
             <objects>
-                <viewControllerPlaceholder storyboardName="FrontPageViewController" id="0kq-7W-EGp" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a7v-p7-6iu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="E13-xW-uly" customClass="FrontPageViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kVU-hf-J01">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AS2-Nk-sbc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ute-jo-xMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1033" y="128"/>
         </scene>
