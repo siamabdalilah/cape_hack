@@ -36,6 +36,14 @@ class FilePickerViewController: UIViewController {
     }
 
     func pickFile(){
+        let s = "sdsdscsdcsdc"
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("hello.txt")
+        do{
+            try s.write(to: path, atomically: true, encoding: String.Encoding.utf8)
+        }
+        catch{
+            return
+        }
 
         let documentTypes: [String] = [kUTTypeImage as String, kUTTypePDF as String, kUTTypeText as String]
         let documentPicker = UIDocumentPickerViewController(documentTypes: documentTypes, in: UIDocumentPickerMode.import)
