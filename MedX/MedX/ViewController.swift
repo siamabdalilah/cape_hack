@@ -21,7 +21,8 @@ class ViewController: UIViewController, URLSessionDelegate {
         self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
         var key = sqliteOps.instance.readFromSQLite(table: "pub")
         if key != "" {
-            publicKey.text = key
+            publicKey.text = "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e"
+            password.text = "WelcomeToSirius"
         }
         
         //Looks for single or multiple taps.
@@ -31,6 +32,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         //tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
+        
         
     }
     @objc func dismissKeyboard() {
@@ -51,7 +53,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
     func signUpRequest(password: String){
-        let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
+        let endpoint: String = "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
             return
@@ -109,7 +111,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         task.resume()
     }
     func signInRequest(publicKey: String, password: String){
-        let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signin"
+        let endpoint: String = "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signin"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
             return

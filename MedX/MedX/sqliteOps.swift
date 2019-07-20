@@ -71,6 +71,14 @@ class sqliteOps{
             print("create table success")
         }
     }
+    func createTableInSQLiteFiles(tableName: String){
+        if sqlite3_exec(db, "create table if not exists \(tableName) (location text, name text)", nil, nil, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error creating table: \(errmsg)")
+        }else{
+            print("create table success")
+        }
+    }
     func prepareAndInsertToSQLite(table: String, field: String, value: String){
         var statement: OpaquePointer?
         
@@ -100,5 +108,58 @@ class sqliteOps{
             print("success finalizing prepared statement")
         }
         statement = nil
+    }
+    func prepareAndInsertToSQLiteFiles(table: String, location: String, name: String){
+        var statement: OpaquePointer?
+        
+        if sqlite3_prepare_v2(db, "insert into \(table) (location, name) values (?,?)", -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert: \(errmsg)")
+        }else{
+            print("success preparing insert")
+        }
+        if sqlite3_bind_text(statement, 1, location, -1, SQLITE_TRANSIENT) != SQLITE_OK || sqlite3_bind_text(statement, 1, name, -1, SQLITE_TRANSIENT) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding foo: \(errmsg)")
+        }else{
+            print("success binding foo")
+        }
+        
+        if sqlite3_step(statement) != SQLITE_DONE {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure inserting foo: \(errmsg)")
+        }else{
+            print("success inserting foo")
+        }
+        if sqlite3_finalize(statement) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error finalizing prepared statement: \(errmsg)")
+        }else{
+            print("success finalizing prepared statement")
+        }
+        statement = nil
+    }
+    func readFromSQLiteFiles() -> String{
+        var statement: OpaquePointer?
+        if sqlite3_prepare_v2(db, "select location from userFiles", -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        var key = ""
+        while sqlite3_step(statement) == SQLITE_ROW {
+            if let cString = sqlite3_column_text(statement, 0) {
+                key = String(cString: cString)
+                print(key)
+            } else {
+                print("files not found")
+            }
+        }
+        if sqlite3_finalize(statement) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error finalizing prepared statement: \(errmsg)")
+        }
+        
+        statement = nil
+        return key
     }
 }
