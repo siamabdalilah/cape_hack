@@ -106,23 +106,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MedX Option Logo Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="S3G-7H-eHX">
-                                <rect key="frame" x="-61" y="-298" width="537" height="1443"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2R-ij-MPl" userLabel="ConsultAPhysician">
                                 <rect key="frame" x="116" y="462" width="182" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.44598835710000001" green="0.63513904809999999" blue="0.77864563470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Consult A Physician"/>
+                                <state key="normal" title="Scan Code"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="XeA-ym-UFh" kind="show" id="cU1-7T-7KM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS0-ow-WWj" userLabel="ImportNewRecord">
                                 <rect key="frame" x="116" y="244" width="182" height="45"/>
@@ -144,7 +143,7 @@
                                 <color key="backgroundColor" red="0.44598835710000001" green="0.63513904809999999" blue="0.77864563470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Patient Care Service"/>
+                                <state key="normal" title="Grant Permissions"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -198,10 +197,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qIt-sE-Y1r"/>
                     </view>
+                    <navigationItem key="navigationItem" id="v55-cH-ZIt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCn-yx-h1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MedX Option Logo Icon.png" id="S3G-7H-eHX">
+                    <rect key="frame" x="0.0" y="0.0" width="537" height="1443"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </objects>
-            <point key="canvasLocation" x="-1074" y="792"/>
+            <point key="canvasLocation" x="-339.13043478260875" y="784.82142857142856"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="mFt-yd-7Rl">
@@ -212,7 +216,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zje-KY-ewx" customClass="QRScannerView" customModule="MedX" customModuleProvider="target">
-                                <rect key="frame" x="20" y="111" width="374" height="364"/>
+                                <rect key="frame" x="20" y="155" width="374" height="320"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="Piy-de-0RP"/>
@@ -242,7 +246,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed4-6o-EHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="865"/>
+            <point key="canvasLocation" x="966.66666666666674" y="816.96428571428567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="o5L-Wr-Ybv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Tl-vi-DKz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B8g-K4-rD3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="90o-jb-UVk" kind="relationship" relationship="rootViewController" id="ImN-iu-DrJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmJ-xw-16i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1249.2753623188407" y="784.82142857142856"/>
         </scene>
     </scenes>
     <resources>
