@@ -27,8 +27,6 @@ class ViewController: UIViewController, URLSessionDelegate {
             }
             
         }
-        let api = LethAPI()
-        fetchFile(meta:"",token:"") 
 
     }
     
