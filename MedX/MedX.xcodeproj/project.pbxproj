@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D7BC3DD07FA6BD2AC530F07 /* Pods_MedX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */; };
 		CE04BABA22E365C900CA33F5 /* qrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */; };
 		CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */; };
 		CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */; };
@@ -30,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.release.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.release.xcconfig"; sourceTree = "<group>"; };
+		295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.debug.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.debug.xcconfig"; sourceTree = "<group>"; };
+		9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrCodeViewController.swift; sourceTree = "<group>"; };
 		CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sqliteOps.swift; sourceTree = "<group>"; };
 		CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MedXOptionConsultAPhysician.png; sourceTree = "<group>"; };
@@ -59,12 +63,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7BC3DD07FA6BD2AC530F07 /* Pods_MedX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94020C00293524611E41E5F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE3CFA6F22E383F500B69D89 /* Logos */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +108,8 @@
 			children = (
 				CE7949BA22E2A22D00169EFD /* MedX */,
 				CE7949B922E2A22D00169EFD /* Products */,
+				E3795AA093A7BA777B870BE0 /* Pods */,
+				94020C00293524611E41E5F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +140,16 @@
 			path = MedX;
 			sourceTree = "<group>";
 		};
+		E3795AA093A7BA777B870BE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */,
+				13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE7949CA22E2A22E00169EFD /* Build configuration list for PBXNativeTarget "MedX" */;
 			buildPhases = (
+				38A60647B0205A781F90A41E /* [CP] Check Pods Manifest.lock */,
 				CE7949B422E2A22D00169EFD /* Sources */,
 				CE7949B522E2A22D00169EFD /* Frameworks */,
 				CE7949B622E2A22D00169EFD /* Resources */,
+				7C8E697DA3BDA9601CB396F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +227,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38A60647B0205A781F90A41E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MedX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C8E697DA3BDA9601CB396F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MedX/Pods-MedX-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MedX/Pods-MedX-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MedX/Pods-MedX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE7949B422E2A22D00169EFD /* Sources */ = {
@@ -356,6 +425,7 @@
 		};
 		CE7949CB22E2A22E00169EFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,6 +444,7 @@
 		};
 		CE7949CC22E2A22E00169EFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

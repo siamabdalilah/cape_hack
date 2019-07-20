@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-MedX/Pods-MedX-frameworks.sh
+${PODS_ROOT}/SendBirdSDK/SendBirdSDK.framework
+${PODS_ROOT}/SendBirdSDK/SendBirdSDK.framework.dSYM

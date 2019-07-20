@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SendBirdSDK
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        SBDMain.initWithApplicationId("E534DF93-16BE-494D-951D-A4993B6FA370")
         return true
     }
 

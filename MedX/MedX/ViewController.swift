@@ -8,6 +8,7 @@
 
 import UIKit
 import SQLite3
+import SendBirdSDK
 class ViewController: UIViewController, URLSessionDelegate {
 
     @IBOutlet weak var publicKey: UITextField!
@@ -145,6 +146,12 @@ class ViewController: UIViewController, URLSessionDelegate {
                 }
                 self.defaults.set(token, forKey: "token")
                 print("The token is:"+(self.defaults.string(forKey: "token") ?? "not found"))
+                SBDMain.connect(withUserId: publicKey) { (user, error) in
+                    guard error == nil else {   // Error.
+                        return
+                    }
+                }
+
                 DispatchQueue.main.async {
                     let nav = self.storyboard?.instantiateViewController(withIdentifier: "nav")
                     self.present(nav!, animated: true, completion: nil)
