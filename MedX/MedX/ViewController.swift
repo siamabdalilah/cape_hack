@@ -10,16 +10,36 @@ import UIKit
 import SQLite3
 class ViewController: UIViewController, URLSessionDelegate {
     var db : OpaquePointer?
+    
+    @IBOutlet weak var publicKey: UITextField!
+    @IBOutlet weak var password: UITextField!
     internal let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
     internal let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
-        
-    }
+        db = openDatabase()
+        if db != nil {
+            var key = readFromSQLite(table: "pub")
+            if key != "" {
+                
+                publicKey.text = key
+            }
+            
+        }
 
-//    @IBAction func open(_ sender: UIButton) {
+    }
+    
+    @IBAction func signUp(sender: UIButton) {
+        if db != nil {
+            //makeRequest(value: password.text!)
+            
+            
+        }
+    }
+    
+    //    @IBAction func open(_ sender: UIButton) {
 //        db = openDatabase()
 //    }
 //
@@ -90,23 +110,23 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         statement = nil
     }
-    func readFromSQLite(){
+    func readFromSQLite(table: String) -> String{
         var statement: OpaquePointer?
-        if sqlite3_prepare_v2(db, "select key from pub", -1, &statement, nil) != SQLITE_OK {
+        if sqlite3_prepare_v2(db, "select key from \(table)", -1, &statement, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing select: \(errmsg)")
         }
-        
-        while sqlite3_step(statement) == SQLITE_ROW {
-            
-            if let cString = sqlite3_column_text(statement, 0) {
-                let name = String(cString: cString)
-                print("key = \(name)")
-            } else {
-                print("key not found")
+        var key = ""
+        if table == "pub" {
+            while sqlite3_step(statement) == SQLITE_ROW {
+                
+                if let cString = sqlite3_column_text(statement, 0) {
+                    key = String(cString: cString)
+                } else {
+                    print("key not found")
+                }
             }
         }
-        
         if sqlite3_finalize(statement) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error finalizing prepared statement: \(errmsg)")
@@ -118,19 +138,20 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         
         db = nil
+        return key
     }
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
-    func makeRequest(){
-        let endpoint: String = "https://ec2-13-59-185-90.us-east-2.compute.amazonaws.com:8080/user/signup"
+    func makeRequest(value: String){
+        let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
             return
         }
         var urlRequest = URLRequest(url: createUrl)
         urlRequest.httpMethod = "POST"
-        let input: [String: Any] = ["password": "My First todo"]
+        let input: [String: Any] = ["password": password.text!]
         let json: Data
         do {
             json = try JSONSerialization.data(withJSONObject: input, options: [])
@@ -163,13 +184,13 @@ class ViewController: UIViewController, URLSessionDelegate {
                         print("Could not get JSON from responseData as dictionary")
                         return
                 }
-                
-                guard let key = receivedPub["key"] as? String else {
+                guard let key = receivedPub["account"] as? String else {
                     print("Could not get todoID as int from JSON")
                     return
                 }
                 print("The key is: \(key)")
                 self.prepareAndInsertToSQLite(table: "pub", field: "key", value: key)
+                
             } catch  {
                 print("error parsing response from POST on /todos")
                 return
@@ -195,6 +216,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         sqlite3_finalize(statement)
     }
+    
 
 }
 

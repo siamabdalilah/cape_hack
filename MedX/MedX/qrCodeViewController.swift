@@ -16,7 +16,45 @@ class qrCodeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    func QRtest(){
+        let jsonObj = ["someKey": 42.0,
+                       "anotherKey": [
+                        "someNestedKey": true
+            ]] as [String : Any]
+        
+        var QRstring = " "
+        QRstring = jsonToString(json: jsonObj as AnyObject)!
+        print("\(QRstring)")
+        let data = QRstring.data(using: String.Encoding.ascii)
+        
+        guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
+        // 4
+        qrFilter.setValue(data, forKey: "inputMessage")
+        // 5
+        guard let qrPic = qrFilter.outputImage else { return }
+        
+        let transform = CGAffineTransform(scaleX: 10, y: 10)
+        let scaledQrImage = qrPic.transformed(by: transform)
+        
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(scaledQrImage, from: scaledQrImage.extent) else { return }
+        let processedImage = UIImage(cgImage: cgImage)
+       // qrImage.image = processedImage
+    }
+    
+    
+    
+    func jsonToString(json: AnyObject) -> String?{
+        do {
+            let data1 =  try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted) // first of all convert json to the data
+            let convertedString = String(data: data1, encoding: String.Encoding.utf8) // the data will be converted to the string
+            return convertedString ?? "defaultvalue"
+        } catch let myJSONError {
+            print(myJSONError)
+            return nil
+        }
+        
+    }
     /*
     // MARK: - Navigation
 
