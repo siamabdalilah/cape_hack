@@ -13,6 +13,7 @@ class ViewController: UIViewController, URLSessionDelegate {
     
     @IBOutlet weak var publicKey: UITextField!
     @IBOutlet weak var password: UITextField!
+    var defaults = UserDefaults.standard
     internal let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
     internal let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
     override func viewDidLoad() {
@@ -25,19 +26,34 @@ class ViewController: UIViewController, URLSessionDelegate {
             if key != "" {
                 publicKey.text = key
             }
-            
         }
-
     }
     
     @IBAction func signUp(sender: UIButton) {
+        print("wtf")
         if db != nil {
+            print("wtff")
             //makeRequest(value: password.text!)
-            
-            
+            if password.text != nil {
+                if publicKey != nil {
+                    signInRequest()
+                }else{
+                    signUpRequest()
+                    closeSQLite()
+                }
+            }
         }
     }
-    
+    func closeSQLite(){
+        if db != nil {
+            if sqlite3_close(db) != SQLITE_OK {
+                print("error closing database")
+            }
+            
+            db = nil
+        }
+
+    }
     //    @IBAction func open(_ sender: UIButton) {
 //        db = openDatabase()
 //    }
@@ -132,17 +148,13 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         
         statement = nil
-        if sqlite3_close(db) != SQLITE_OK {
-            print("error closing database")
-        }
-        
-        db = nil
+
         return key
     }
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
-    func signUpRequest(value: String){
+    func signUpRequest(){
         let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
         guard let createUrl = URL(string: endpoint) else {
             print("Error: cannot create URL")
@@ -197,7 +209,61 @@ class ViewController: UIViewController, URLSessionDelegate {
         }
         task.resume()
     }
-    
+    func signInRequest(){
+        let endpoint: String = "https://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signin"
+        guard let createUrl = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        var urlRequest = URLRequest(url: createUrl)
+        urlRequest.httpMethod = "POST"
+        let input: [String: Any] = ["account": publicKey.text!,"password": password.text!]
+        let json: Data
+        do {
+            json = try JSONSerialization.data(withJSONObject: input, options: [])
+            urlRequest.httpBody = json
+        } catch {
+            print("Error: cannot create JSON from todo")
+            return
+        }
+        
+        let session = URLSession(
+            configuration: URLSessionConfiguration.default,
+            delegate: self, // DO NOT FORGET YOUR OBJECT HERE!!
+            delegateQueue: nil)
+        print("up to here")
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) in
+            guard error == nil else {
+                print("error calling POST on /todos/1")
+                print(error)
+                return
+            }
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            
+            // parse the result as JSON, since that's what the API provides
+            do {
+                guard let receivedPub = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any]
+                    else {
+                        print("Could not get JSON from responseData as dictionary")
+                        return
+                }
+                guard let token = receivedPub["token"] as? String else {
+                    print("Could not get todoID as int from JSON")
+                    return
+                }
+                self.defaults.set(token, forKey: "token")
+                print("The token is:"+(self.defaults.string(forKey: "token") ?? "not found"))
+            } catch  {
+                print("error parsing response from POST on /todos")
+                return
+            }
+        }
+        task.resume()
+    }
     func deleteFromSQLite(table: String,value: String){
         let statementString = "DELETE FROM \(table) WHERE key = ?;"
         var statement: OpaquePointer? = nil
