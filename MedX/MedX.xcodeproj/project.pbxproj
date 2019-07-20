@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		CE04BABA22E365C900CA33F5 /* qrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */; };
 		CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */; };
+		CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */; };
+		CE3CFA7A22E383F500B69D89 /* MedX Icon.PNG in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7122E383F500B69D89 /* MedX Icon.PNG */; };
+		CE3CFA7B22E383F500B69D89 /* MedX Option View Record History.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7222E383F500B69D89 /* MedX Option View Record History.png */; };
+		CE3CFA7C22E383F500B69D89 /* MedX Option Import New Record.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7322E383F500B69D89 /* MedX Option Import New Record.png */; };
+		CE3CFA7D22E383F500B69D89 /* MedX Option Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7422E383F500B69D89 /* MedX Option Settings.png */; };
+		CE3CFA7E22E383F500B69D89 /* MedX Option Sign Out.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7522E383F500B69D89 /* MedX Option Sign Out.png */; };
+		CE3CFA7F22E383F500B69D89 /* MedX Option Logo Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7622E383F500B69D89 /* MedX Option Logo Icon.png */; };
+		CE3CFA8022E383F500B69D89 /* MedX Logo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7722E383F500B69D89 /* MedX Logo.PNG */; };
+		CE3CFA8122E383F500B69D89 /* MedX Option Patient Care Services.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7822E383F500B69D89 /* MedX Option Patient Care Services.png */; };
+		CE3CFA8422E3840B00B69D89 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */; };
+		CE3CFA8522E3840B00B69D89 /* FrontPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA8322E3840B00B69D89 /* FrontPage.storyboard */; };
 		CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BB22E2A22D00169EFD /* AppDelegate.swift */; };
 		CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BD22E2A22D00169EFD /* ViewController.swift */; };
 		CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7949BF22E2A22D00169EFD /* Main.storyboard */; };
@@ -19,6 +30,17 @@
 /* Begin PBXFileReference section */
 		CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrCodeViewController.swift; sourceTree = "<group>"; };
 		CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sqliteOps.swift; sourceTree = "<group>"; };
+		CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MedXOptionConsultAPhysician.png; sourceTree = "<group>"; };
+		CE3CFA7122E383F500B69D89 /* MedX Icon.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Icon.PNG"; sourceTree = "<group>"; };
+		CE3CFA7222E383F500B69D89 /* MedX Option View Record History.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Option View Record History.png"; sourceTree = "<group>"; };
+		CE3CFA7322E383F500B69D89 /* MedX Option Import New Record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Option Import New Record.png"; sourceTree = "<group>"; };
+		CE3CFA7422E383F500B69D89 /* MedX Option Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Option Settings.png"; sourceTree = "<group>"; };
+		CE3CFA7522E383F500B69D89 /* MedX Option Sign Out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Option Sign Out.png"; sourceTree = "<group>"; };
+		CE3CFA7622E383F500B69D89 /* MedX Option Logo Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Option Logo Icon.png"; sourceTree = "<group>"; };
+		CE3CFA7722E383F500B69D89 /* MedX Logo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Logo.PNG"; sourceTree = "<group>"; };
+		CE3CFA7822E383F500B69D89 /* MedX Option Patient Care Services.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Option Patient Care Services.png"; sourceTree = "<group>"; };
+		CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
+		CE3CFA8322E3840B00B69D89 /* FrontPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FrontPage.storyboard; sourceTree = "<group>"; };
 		CE7949B822E2A22D00169EFD /* MedX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7949BB22E2A22D00169EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7949BD22E2A22D00169EFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +61,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE3CFA6F22E383F500B69D89 /* Logos */ = {
+			isa = PBXGroup;
+			children = (
+				CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */,
+				CE3CFA7122E383F500B69D89 /* MedX Icon.PNG */,
+				CE3CFA7222E383F500B69D89 /* MedX Option View Record History.png */,
+				CE3CFA7322E383F500B69D89 /* MedX Option Import New Record.png */,
+				CE3CFA7422E383F500B69D89 /* MedX Option Settings.png */,
+				CE3CFA7522E383F500B69D89 /* MedX Option Sign Out.png */,
+				CE3CFA7622E383F500B69D89 /* MedX Option Logo Icon.png */,
+				CE3CFA7722E383F500B69D89 /* MedX Logo.PNG */,
+				CE3CFA7822E383F500B69D89 /* MedX Option Patient Care Services.png */,
+			);
+			path = Logos;
+			sourceTree = "<group>";
+		};
 		CE7949AF22E2A22D00169EFD = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +96,10 @@
 		CE7949BA22E2A22D00169EFD /* MedX */ = {
 			isa = PBXGroup;
 			children = (
+				CE3CFA6F22E383F500B69D89 /* Logos */,
 				CE7949BB22E2A22D00169EFD /* AppDelegate.swift */,
+				CE3CFA8322E3840B00B69D89 /* FrontPage.storyboard */,
+				CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */,
 				CE7949BD22E2A22D00169EFD /* ViewController.swift */,
 				CE7949BF22E2A22D00169EFD /* Main.storyboard */,
 				CE7949C222E2A22E00169EFD /* Assets.xcassets */,
@@ -128,9 +169,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3CFA7A22E383F500B69D89 /* MedX Icon.PNG in Resources */,
+				CE3CFA7E22E383F500B69D89 /* MedX Option Sign Out.png in Resources */,
 				CE7949C622E2A22E00169EFD /* LaunchScreen.storyboard in Resources */,
+				CE3CFA8522E3840B00B69D89 /* FrontPage.storyboard in Resources */,
+				CE3CFA8122E383F500B69D89 /* MedX Option Patient Care Services.png in Resources */,
 				CE7949C322E2A22E00169EFD /* Assets.xcassets in Resources */,
+				CE3CFA7D22E383F500B69D89 /* MedX Option Settings.png in Resources */,
+				CE3CFA7F22E383F500B69D89 /* MedX Option Logo Icon.png in Resources */,
+				CE3CFA8022E383F500B69D89 /* MedX Logo.PNG in Resources */,
+				CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */,
+				CE3CFA7C22E383F500B69D89 /* MedX Option Import New Record.png in Resources */,
 				CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */,
+				CE3CFA7B22E383F500B69D89 /* MedX Option View Record History.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE04BABA22E365C900CA33F5 /* qrCodeViewController.swift in Sources */,
+				CE3CFA8422E3840B00B69D89 /* FrontPageViewController.swift in Sources */,
 				CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */,
 				CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */,
 				CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */,

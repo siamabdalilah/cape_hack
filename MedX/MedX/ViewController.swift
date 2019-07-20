@@ -33,8 +33,7 @@ class ViewController: UIViewController, URLSessionDelegate {
                 signUpRequest()
             }
         }
-        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homePage")
-        self.present(homePage!, animated: true, completion: nil)
+
         
     }
 
@@ -83,14 +82,15 @@ class ViewController: UIViewController, URLSessionDelegate {
                         return
                 }
                 guard let key = receivedPub["account"] as? String else {
-                    print("Could not get todoID as int from JSON")
+
                     return
                 }
                 print("The key is: \(key)")
                 sqliteOps.instance.prepareAndInsertToSQLite(table: "pub", field: "key", value: key)
-                
+
             } catch  {
                 print("error parsing response from POST on /todos")
+
                 return
             }
         }
@@ -139,11 +139,16 @@ class ViewController: UIViewController, URLSessionDelegate {
                         return
                 }
                 guard let token = receivedPub["token"] as? String else {
-                    print("Could not get todoID as int from JSON")
+                    print("cannot login")
                     return
                 }
                 self.defaults.set(token, forKey: "token")
                 print("The token is:"+(self.defaults.string(forKey: "token") ?? "not found"))
+                DispatchQueue.main.async {
+                    let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homePage")
+                    self.present(homePage!, animated: true, completion: nil)
+                }
+
             } catch  {
                 print("error parsing response from POST on /todos")
                 return
