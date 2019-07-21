@@ -127,10 +127,19 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
         let fileMeta = fileAddresses[indexPath.row]
         let file:[String:String] = [fileName:fileMeta]
         DownloadHelper.download(files: file) { _ in
-            let alert = UIAlertController(title: "Done", message: "File Downloaded.", preferredStyle: .alert)
+
+            let refreshAlert = UIAlertController(title: "File Downloaded", message: "Do you want to see it now?", preferredStyle: UIAlertController.Style.alert)
             
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true)
+            refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                 DownloadHelper.open(fileName: fileName, controller: self)
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                
+            }))
+            
+            self.present(refreshAlert, animated: true, completion: nil)
+           
         }
     }
     

@@ -34,6 +34,7 @@
 		CE4A767222E41AD500BCCA1C /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A767122E41AD500BCCA1C /* Records.swift */; };
 		CE697F9F22E45D6500D73F09 /* MedX Main Page Dark Theme.png in Resources */ = {isa = PBXBuildFile; fileRef = CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */; };
 		CE697FA122E45E5700D73F09 /* Garamond.ttc in Resources */ = {isa = PBXBuildFile; fileRef = CE697FA022E45E5200D73F09 /* Garamond.ttc */; };
+		CE697FA322E48FBD00D73F09 /* successViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FA222E48FBD00D73F09 /* successViewController.swift */; };
 		CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560A22E3A917002EC169 /* tableViewController.swift */; };
 		CE76560D22E3D09C002EC169 /* record.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560C22E3D09C002EC169 /* record.swift */; };
 		CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560E22E3D894002EC169 /* uploadViewController.swift */; };
@@ -74,6 +75,7 @@
 		CE4A767122E41AD500BCCA1C /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
 		CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Main Page Dark Theme.png"; sourceTree = "<group>"; };
 		CE697FA022E45E5200D73F09 /* Garamond.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Garamond.ttc; sourceTree = "<group>"; };
+		CE697FA222E48FBD00D73F09 /* successViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = successViewController.swift; sourceTree = "<group>"; };
 		CE76560A22E3A917002EC169 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 		CE76560C22E3D09C002EC169 /* record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = record.swift; sourceTree = "<group>"; };
 		CE76560E22E3D894002EC169 /* uploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				CE76560C22E3D09C002EC169 /* record.swift */,
 				CE4A766722E4150C00BCCA1C /* KeychainService.swift */,
 				CE4A767122E41AD500BCCA1C /* Records.swift */,
+				CE697FA222E48FBD00D73F09 /* successViewController.swift */,
 			);
 			path = MedX;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				CE76560D22E3D09C002EC169 /* record.swift in Sources */,
 				CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */,
 				CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */,
+				CE697FA322E48FBD00D73F09 /* successViewController.swift in Sources */,
 				CE4A767022E41A1A00BCCA1C /* DoctorTableViewController.swift in Sources */,
 				2744F13E22E44B2C00723D79 /* PersonalInfoScrollViewController.swift in Sources */,
 				CE4A766822E4150C00BCCA1C /* KeychainService.swift in Sources */,
