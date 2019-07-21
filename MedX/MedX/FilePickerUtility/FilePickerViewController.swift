@@ -10,32 +10,60 @@ import UIKit
 import MobileCoreServices
 
 class FilePickerViewController: UIViewController {
+    private let types: [String: String] = [
+        "json": "application/json",
+        "pdf":  "application/pdf",
+        "jpg":  "image/jpeg",
+        "png":  "image/png",
+        "txt":  "text/plain"
+    ]
+    
     
     @IBAction func importFiles(_ sender: Any) {
         pickFile()
+    }
+    
+    @IBAction func uploadSelectedFiles(_ sender: Any) {
+        checkUploadability()
+        
+        let api = LethAPI()
+        api.signUp(password: "pass123")
+        api.signIn(account: "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e", password: "WelcomeToSirius")
+        
+        let filesToUpload = getFiles()
+        
+        for (name, data) in filesToUpload {
+            let ext = String(name.split(separator: ".").last ?? "")
+            if let mimeType = types[ext] {
+                //api.addFile(name: name, type: mimeType, data: data)
+                print(String(decoding: data, as: UTF8.self))
+                print("file uploaded")
+            } else {
+                // TODO
+            }
+            
+        }
     }
     
     @IBOutlet weak var selectedFiles: UITableView! {
         didSet {
             selectedFiles.allowsSelection = false
             selectedFiles.delegate = self
-//            selectedFiles.dataSource = files as UITableViewDataSource
         }
     }
     @IBOutlet weak var numFiles: UITextView!
     
-    var files = [URL]() {
+    private var files = [URL]() {
         didSet {
-//            updateTable()
             numFiles.text = "Number of Files: \(String(files.count))"
         }
     }
-    
-    func updateTable(){
-        
+  
+    private func checkUploadability(){
+        // TODO
     }
 
-    func pickFile(){
+    private func pickFile(){
         let s = "sdsdscsdcsdc"
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("hello.txt")
         do{
@@ -55,7 +83,7 @@ class FilePickerViewController: UIViewController {
     }
     
     // returns [String: Data] dictionaries with names and file for all URLs in selected
-    func getFiles() -> [String:Data]{
+    private func getFiles() -> [String:Data]{
         var returnVal = [String:Data]()
         for file in files{
             let data = FileManager.default.contents(atPath: file.path) ?? "Error: Unable to get file".data(using: String.Encoding.utf8)
