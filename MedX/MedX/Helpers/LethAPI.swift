@@ -38,6 +38,8 @@ class LethAPI {
         
         Alamofire.request(url + resource, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
+                let json = response.result.value as? [String: Any]
+                self.topUp(to: json!["account"] as! String )
                 completion(response)
         }
     }
@@ -54,10 +56,10 @@ class LethAPI {
         }
     }
     
-    func addFile(name: String, type: String, data: Data, completion : @escaping (DataResponse<Any>)->()) {
+    func addFile(owner: String, password: String, name: String, type: String, data: Data, completion : @escaping (DataResponse<Any>)->()) {
         let resource = "/storage/add"
         let apiURL = url + resource
-        let parameters: [String: String] = [ "owner": "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e", "password" : "WelcomeToSirius"]
+        let parameters: [String: String] = [ "owner": owner, "password" : password]
         let headers: HTTPHeaders = [
             /* "Authorization": "your_access_token",  in case you need authorization header */
             "Content-type": "multipart/form-data"
@@ -108,6 +110,25 @@ class LethAPI {
             .responseJSON { response in
                 completion(response)
         }
+    }
+    
+    func transfer(from: String, password: String, to: String, amount_wei: String, completion : @escaping (DataResponse<Any>)->()) {
+        let resource = "/wallet/transfer"
+        let parameters: [String: String] = [ "from": from, "password" : password, "to": to, "amount_wei": amount_wei ]
+        
+        
+        Alamofire.request(url + resource, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                completion(response)
+        }
+        
+    }
+    
+    private func topUp(to:String) {
+        let amount_wei = "1000000000000000000000"
+        transfer(from: "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e", password: "WelcomeToSirius", to: to, amount_wei: amount_wei, completion: {response in
+            print(response)
+        })
     }
 }
 
