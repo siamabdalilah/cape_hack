@@ -20,9 +20,9 @@ class ViewController: UIViewController, URLSessionDelegate {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
         var key = sqliteOps.instance.readFromSQLite(table: "pub")
+        print(key)
         if key != "" {
-            publicKey.text = "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e"
-            password.text = "WelcomeToSirius"
+            publicKey.text = key
         }
         api = LethAPI()
         //Looks for single or multiple taps.
