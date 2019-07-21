@@ -32,6 +32,8 @@
 		CE4A766F22E41A1A00BCCA1C /* DoctorScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A766B22E41A1900BCCA1C /* DoctorScanViewController.swift */; };
 		CE4A767022E41A1A00BCCA1C /* DoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A766C22E41A1A00BCCA1C /* DoctorTableViewController.swift */; };
 		CE4A767222E41AD500BCCA1C /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A767122E41AD500BCCA1C /* Records.swift */; };
+		CE697F9F22E45D6500D73F09 /* MedX Main Page Dark Theme.png in Resources */ = {isa = PBXBuildFile; fileRef = CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */; };
+		CE697FA122E45E5700D73F09 /* Garamond.ttc in Resources */ = {isa = PBXBuildFile; fileRef = CE697FA022E45E5200D73F09 /* Garamond.ttc */; };
 		CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560A22E3A917002EC169 /* tableViewController.swift */; };
 		CE76560D22E3D09C002EC169 /* record.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560C22E3D09C002EC169 /* record.swift */; };
 		CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560E22E3D894002EC169 /* uploadViewController.swift */; };
@@ -70,6 +72,8 @@
 		CE4A766B22E41A1900BCCA1C /* DoctorScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorScanViewController.swift; sourceTree = "<group>"; };
 		CE4A766C22E41A1A00BCCA1C /* DoctorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTableViewController.swift; sourceTree = "<group>"; };
 		CE4A767122E41AD500BCCA1C /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
+		CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Main Page Dark Theme.png"; sourceTree = "<group>"; };
+		CE697FA022E45E5200D73F09 /* Garamond.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Garamond.ttc; sourceTree = "<group>"; };
 		CE76560A22E3A917002EC169 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 		CE76560C22E3D09C002EC169 /* record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = record.swift; sourceTree = "<group>"; };
 		CE76560E22E3D894002EC169 /* uploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */,
 				CE3CFA7122E383F500B69D89 /* MedX Icon.PNG */,
 				CE3CFA7222E383F500B69D89 /* MedX Option View Record History.png */,
+				CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */,
 				CE3CFA7322E383F500B69D89 /* MedX Option Import New Record.png */,
 				CE3CFA7422E383F500B69D89 /* MedX Option Settings.png */,
 				CE3CFA7522E383F500B69D89 /* MedX Option Sign Out.png */,
@@ -170,6 +175,7 @@
 				CE3CFA6F22E383F500B69D89 /* Logos */,
 				CE7949BB22E2A22D00169EFD /* AppDelegate.swift */,
 				CE76560E22E3D894002EC169 /* uploadViewController.swift */,
+				CE697FA022E45E5200D73F09 /* Garamond.ttc */,
 				CE4A766B22E41A1900BCCA1C /* DoctorScanViewController.swift */,
 				2744F13D22E44B2B00723D79 /* PersonalInfoScrollViewController.swift */,
 				CE4A766C22E41A1A00BCCA1C /* DoctorTableViewController.swift */,
@@ -269,11 +275,13 @@
 				CE3CFA7D22E383F500B69D89 /* MedX Option Settings.png in Resources */,
 				CE3CFA7F22E383F500B69D89 /* MedX Option Logo Icon.png in Resources */,
 				CE3CFA8022E383F500B69D89 /* MedX Logo.PNG in Resources */,
+				CE697FA122E45E5700D73F09 /* Garamond.ttc in Resources */,
 				CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */,
 				2744F13C22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard in Resources */,
 				CE3CFA7C22E383F500B69D89 /* MedX Option Import New Record.png in Resources */,
 				CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */,
 				CE3CFA7B22E383F500B69D89 /* MedX Option View Record History.png in Resources */,
+				CE697F9F22E45D6500D73F09 /* MedX Main Page Dark Theme.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,14 +500,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38YW76JXDS;
+				DEVELOPMENT_TEAM = LPXSSA59S3;
 				INFOPLIST_FILE = MedX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = capehack;
+				PRODUCT_BUNDLE_IDENTIFIER = capehack.MedX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,14 +520,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38YW76JXDS;
+				DEVELOPMENT_TEAM = LPXSSA59S3;
 				INFOPLIST_FILE = MedX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = capehack;
+				PRODUCT_BUNDLE_IDENTIFIER = capehack.MedX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

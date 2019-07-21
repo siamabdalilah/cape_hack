@@ -9,6 +9,13 @@
 import UIKit
 
 class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    private let types: [String: String] = [
+        "json": "application/json",
+        "pdf":  "application/pdf",
+        "jpg":  "image/jpeg",
+        "png":  "image/png",
+        "txt":  "text/plain"
+    ]
     
     @IBOutlet weak var PreferredHospitalList: UITextView!
     @IBOutlet weak var txtDatePicker: UITextField!
@@ -25,7 +32,7 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
     @IBOutlet weak var AddressField: UITextField!
     @IBOutlet weak var EmergencyContactField: UITextField!
     @IBOutlet weak var PhoneField: UITextField!
-    
+    var api = LethAPI()
     var currentTextField = UITextField()
     var pickerView = UIPickerView()
     
@@ -81,15 +88,33 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
             "Insurance ID": InsuranceIDField!.text ?? "Your Insurance ID?",
             "Preferred Hospital List": PreferredHospitalList!.text ?? "Your Preferred Hospital List?"
         ]
-//        let valid = JSONSerialization.isValidJSONObject(jsonObject)
-//        print(valid)
         do {
             let encoder = JSONEncoder()
             let jsonData = try encoder.encode(para)
             let jsonString = String(decoding: jsonData,as: UTF8.self)
             print(jsonString)
             let data: Data? = jsonString.data(using: .utf8)
-            print(data ?? "Missing data collected") // data ready for upload
+            api.addFile(name: "personal_info", type: "json", data: data!, completion: {response in
+                do {
+                    guard let receivedPub = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any]
+                        else {
+                            print("Could not get JSON from responseData as dictionary")
+                            return
+                    }
+                    print(receivedPub.description)
+                    guard let loc = receivedPub["meta"] as? String else {
+                        return
+                    }
+                    guard let acl = receivedPub["acl"] as? String else {
+                        return
+                    }
+                    sqliteOps.instance.createTableInSQLiteFiles(tableName: "userFiles")
+                    sqliteOps.instance.prepareAndInsertToSQLiteFiles(table: "userFiles", location: loc, name: "personal_info", acl: acl)
+                } catch  {
+                    print("error parsing response from POST on /todos")
+                    return
+                }
+            })
         } catch {
             print("error happened")
         }
