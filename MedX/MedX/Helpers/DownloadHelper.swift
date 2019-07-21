@@ -10,6 +10,13 @@ import Foundation
 import Alamofire
 
 class DownloadHelper{
+    private static let types: [String: String] = [
+        "json": "application/json",
+        "pdf":  "application/pdf",
+        "jpg":  "image/jpeg",
+        "png":  "image/png",
+        "txt":  "text/plain"
+    ]
 
     static func download(files: [String: String], token: String, completion: @escaping (DataResponse<Any>)->()){
         let api = LethAPI()
@@ -28,6 +35,26 @@ class DownloadHelper{
         return FileManager.default.fileExists(atPath: pathUrl.path)
     }
     
+    static func open(fileName: String, controller: UIViewController){
+        let fileType = String(fileName.split(separator: ".").last ?? "")
+        
+        let mime = types[fileType] ?? "text/plain"
+        let baseUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileUrl = baseUrl.appendingPathComponent(fileName)
+        
+        do {
+            let data = try Data(contentsOf: fileUrl)
+            
+            let webview = UIWebView(frame:  controller.view.frame)
+            
+            controller.view.addSubview(webview)
+            webview.load(data, mimeType: mime, textEncodingName: "", baseURL: baseUrl)
+        } catch {
+            print ("Error opening file")
+        }
+        
+        
+    }
     private static func write(fileName: String, response: DataResponse<Any>, completion: @escaping (DataResponse<Any>)->()){
         let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
         do {
