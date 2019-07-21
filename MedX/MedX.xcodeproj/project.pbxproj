@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF4EA122E3C8370093CD9C /* LethAPI.swift */; };
 		4D7BC3DD07FA6BD2AC530F07 /* Pods_MedX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */; };
+		941AF19122E3CED2002687EC /* FilePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941AF19022E3CED2002687EC /* FilePickerViewController.swift */; };
 		CE04BABA22E365C900CA33F5 /* qrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */; };
 		CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */; };
 		CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.release.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.release.xcconfig"; sourceTree = "<group>"; };
 		295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.debug.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.debug.xcconfig"; sourceTree = "<group>"; };
+		941AF19022E3CED2002687EC /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
+		4ACF4EA122E3C8370093CD9C /* LethAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LethAPI.swift; sourceTree = "<group>"; };
 		9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrCodeViewController.swift; sourceTree = "<group>"; };
 		CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sqliteOps.swift; sourceTree = "<group>"; };
@@ -74,12 +78,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4ACF4EA022E3C8200093CD9C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4ACF4EA122E3C8370093CD9C /* LethAPI.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		94020C00293524611E41E5F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		941AF18D22E3CBB0002687EC /* FilePickerUtility */ = {
+			isa = PBXGroup;
+			children = (
+				941AF19022E3CED2002687EC /* FilePickerViewController.swift */,
+			);
+			path = FilePickerUtility;
 			sourceTree = "<group>";
 		};
 		CE3CFA6F22E383F500B69D89 /* Logos */ = {
@@ -128,12 +148,14 @@
 		CE7949BA22E2A22D00169EFD /* MedX */ = {
 			isa = PBXGroup;
 			children = (
+				941AF18D22E3CBB0002687EC /* FilePickerUtility */,
 				CE3CFA8622E3951B00B69D89 /* QRScanner */,
 				CE3CFA6F22E383F500B69D89 /* Logos */,
 				CE7949BB22E2A22D00169EFD /* AppDelegate.swift */,
 				CE76560E22E3D894002EC169 /* uploadViewController.swift */,
 				CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */,
 				CE76560A22E3A917002EC169 /* tableViewController.swift */,
+				4ACF4EA022E3C8200093CD9C /* Helpers */,
 				CE7949BD22E2A22D00169EFD /* ViewController.swift */,
 				CE7949BF22E2A22D00169EFD /* Main.storyboard */,
 				CE7949C222E2A22E00169EFD /* Assets.xcassets */,
@@ -280,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE04BABA22E365C900CA33F5 /* qrCodeViewController.swift in Sources */,
+				941AF19122E3CED2002687EC /* FilePickerViewController.swift in Sources */,
 				CE3CFA8422E3840B00B69D89 /* FrontPageViewController.swift in Sources */,
 				CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */,
 				CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */,
@@ -289,6 +312,7 @@
 				CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */,
 				CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */,
 				CE3CFA8A22E3951B00B69D89 /* QRScannerViewController.swift in Sources */,
+				4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
