@@ -39,20 +39,21 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     func convertQRToJSonArray(){
         //first step is to convert json string to json object
         var string = dataString!
-        string = "{\"records\": \(string)}"
+       // string = "{\"records\": \(string)}"
         let data = string.data(using: .utf8)!
         print("string: \(string)")
         print("data: \(data)")
         let decoder = JSONDecoder()
         do {
-            let object = try decoder.decode(Records.self, from: data)
-            print(object.records[0].fileNumber)
-            print(object.records[1].fileNumber)
-            for index in 0..<object.records.count{
-                fileNumbers.append(object.records[index].fileNumber)
-                fileNames.append(object.records[index].fileName.Name)
-                fileAddresses.append(object.records[index].fileName.Address)
-            }
+            let object = try decoder.decode(Record.self, from: data)
+           // for index in 0..<object.records.count{
+//                fileNumbers.append(object.records[index].fileNumber)
+             //   fileNames.append(object.records[index].Name)
+          //  fileAddresses.append(object.records[index].Meta)
+            print(object.Name)
+            fileNames.append(object.Name)
+            fileAddresses.append(object.Meta)
+         //   }
         } catch let error as NSError {
             print("error: \(error)")
         }
@@ -68,7 +69,7 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fileNumbers.count
+        return fileNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
