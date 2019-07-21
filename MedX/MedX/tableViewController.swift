@@ -14,7 +14,8 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var toLabel: UILabel!
     var api: LethAPI?
     @IBOutlet weak var recordLists: UITableView!
-    
+    var sharedFiles: String = ""
+    var first = true
     override func viewDidLoad() {
         super.viewDidLoad()
         api = LethAPI()
@@ -62,9 +63,20 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print(publicKey)
             self.api!.grantAccess(acl: self.records[indexPath.row].acl, owner: publicKey, password: KeychainService.loadPassword(service: "lightstream", account: publicKey)!, to: self.toLabel.text!, permission: "read", completion: {response in
             })
+            if self.first {
+                self.sharedFiles += "{\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
+                self.first = false
+            }else{
+                self.sharedFiles += ",{\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
+            }
         })
         action.backgroundColor = UIColor.green
         return action
+    }
+    @IBAction func generate(_ sender: UIBarButtonItem) {
+        let qrC = self.storyboard?.instantiateViewController(withIdentifier: "qrCode") as! qrCodeViewController
+        qrC.dataString = sharedFiles
+        self.present(qrC, animated: true, completion: nil)
     }
     func revokeAction(at indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .normal, title:"revoke", handler: {
