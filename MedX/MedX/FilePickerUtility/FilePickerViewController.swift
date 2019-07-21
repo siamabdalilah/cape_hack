@@ -41,7 +41,8 @@ class FilePickerViewController: UIViewController {
             let ext = String(name.split(separator: ".").last ?? "")
             if let mimeType = types[ext] {
                 print("Name of file \(name)")
-                api.addFile(name: name, type: mimeType, data: data, completion: {response in
+                let publicKey = sqliteOps.instance.readFromSQLite(table: "pub")
+                api.addFile(owner: publicKey, password: KeychainService.loadPassword(service: "lightstream", account: publicKey)!,name: name, type: mimeType, data: data, completion: {response in
                     do {
                         guard let receivedPub = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any]
                             else {

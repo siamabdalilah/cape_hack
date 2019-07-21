@@ -94,7 +94,8 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
             let jsonString = String(decoding: jsonData,as: UTF8.self)
             print(jsonString)
             let data: Data? = jsonString.data(using: .utf8)
-            api.addFile(name: "personal_info.jsonq", type: "application/json", data: data!, completion: {response in
+            let publicKey = sqliteOps.instance.readFromSQLite(table: "pub")
+            api.addFile(owner: publicKey, password: KeychainService.loadPassword(service: "lightstream", account: publicKey)!,name: "personal_info.jsonq", type: "application/json", data: data!, completion: {response in
                 do {
                     guard let receivedPub = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any]
                         else {
