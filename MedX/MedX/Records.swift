@@ -5,6 +5,12 @@ struct Record: Codable{
     let Meta: String
 }
 
+//struct fileName: Codable{
+//    let ACL: String
+//    let Address: String
+//    let Name: String
+//}
+
 struct Records: Codable {
     let records: [Record]
 }
