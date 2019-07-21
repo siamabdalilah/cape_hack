@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2744F13C22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2744F13B22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard */; };
+		2744F13E22E44B2C00723D79 /* PersonalInfoScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744F13D22E44B2B00723D79 /* PersonalInfoScrollViewController.swift */; };
 		4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF4EA122E3C8370093CD9C /* LethAPI.swift */; };
 		4D7BC3DD07FA6BD2AC530F07 /* Pods_MedX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */; };
 		941AF19122E3CED2002687EC /* FilePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941AF19022E3CED2002687EC /* FilePickerViewController.swift */; };
+		9425B0F022E415E500442670 /* DownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425B0EF22E415E500442670 /* DownloadHelper.swift */; };
 		CE04BABA22E365C900CA33F5 /* qrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */; };
 		CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */; };
 		CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */; };
@@ -24,7 +27,20 @@
 		CE3CFA8422E3840B00B69D89 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */; };
 		CE3CFA8922E3951B00B69D89 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8722E3951B00B69D89 /* QRScannerView.swift */; };
 		CE3CFA8A22E3951B00B69D89 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8822E3951B00B69D89 /* QRScannerViewController.swift */; };
+		CE4A766622E3FDA800BCCA1C /* record.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A766522E3FDA800BCCA1C /* record.swift */; };
+		CE4A766822E4150C00BCCA1C /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A766722E4150C00BCCA1C /* KeychainService.swift */; };
+		CE4A766F22E41A1A00BCCA1C /* DoctorScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A766B22E41A1900BCCA1C /* DoctorScanViewController.swift */; };
+		CE4A767022E41A1A00BCCA1C /* DoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A766C22E41A1A00BCCA1C /* DoctorTableViewController.swift */; };
+		CE4A767222E41AD500BCCA1C /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A767122E41AD500BCCA1C /* Records.swift */; };
+		CE697F9F22E45D6500D73F09 /* MedX Main Page Dark Theme.png in Resources */ = {isa = PBXBuildFile; fileRef = CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */; };
+		CE697FA122E45E5700D73F09 /* Garamond.ttc in Resources */ = {isa = PBXBuildFile; fileRef = CE697FA022E45E5200D73F09 /* Garamond.ttc */; };
+		CE697FA322E48FBD00D73F09 /* successViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FA222E48FBD00D73F09 /* successViewController.swift */; };
+		CE697FA722E49D5400D73F09 /* FamilyMedicalHistoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FA422E49D5300D73F09 /* FamilyMedicalHistoryScrollView.swift */; };
+		CE697FA822E49D5400D73F09 /* MedHisAndLabResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FA522E49D5300D73F09 /* MedHisAndLabResult.swift */; };
+		CE697FA922E49D5400D73F09 /* MedicalHistoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE697FA622E49D5400D73F09 /* MedicalHistoryScrollView.swift */; };
 		CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560A22E3A917002EC169 /* tableViewController.swift */; };
+		CE76560D22E3D09C002EC169 /* record.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560C22E3D09C002EC169 /* record.swift */; };
+		CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560E22E3D894002EC169 /* uploadViewController.swift */; };
 		CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BB22E2A22D00169EFD /* AppDelegate.swift */; };
 		CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BD22E2A22D00169EFD /* ViewController.swift */; };
 		CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7949BF22E2A22D00169EFD /* Main.storyboard */; };
@@ -34,9 +50,12 @@
 
 /* Begin PBXFileReference section */
 		13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.release.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.release.xcconfig"; sourceTree = "<group>"; };
+		2744F13B22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfoScrollViewController.storyboard; sourceTree = "<group>"; };
+		2744F13D22E44B2B00723D79 /* PersonalInfoScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoScrollViewController.swift; sourceTree = "<group>"; };
 		295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.debug.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.debug.xcconfig"; sourceTree = "<group>"; };
-		941AF19022E3CED2002687EC /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
 		4ACF4EA122E3C8370093CD9C /* LethAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LethAPI.swift; sourceTree = "<group>"; };
+		941AF19022E3CED2002687EC /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
+		9425B0EF22E415E500442670 /* DownloadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHelper.swift; sourceTree = "<group>"; };
 		9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrCodeViewController.swift; sourceTree = "<group>"; };
 		CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sqliteOps.swift; sourceTree = "<group>"; };
@@ -52,7 +71,20 @@
 		CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
 		CE3CFA8722E3951B00B69D89 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		CE3CFA8822E3951B00B69D89 /* QRScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		CE4A766522E3FDA800BCCA1C /* record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = record.swift; sourceTree = "<group>"; };
+		CE4A766722E4150C00BCCA1C /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		CE4A766B22E41A1900BCCA1C /* DoctorScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorScanViewController.swift; sourceTree = "<group>"; };
+		CE4A766C22E41A1A00BCCA1C /* DoctorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTableViewController.swift; sourceTree = "<group>"; };
+		CE4A767122E41AD500BCCA1C /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
+		CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Main Page Dark Theme.png"; sourceTree = "<group>"; };
+		CE697FA022E45E5200D73F09 /* Garamond.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Garamond.ttc; sourceTree = "<group>"; };
+		CE697FA222E48FBD00D73F09 /* successViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = successViewController.swift; sourceTree = "<group>"; };
+		CE697FA422E49D5300D73F09 /* FamilyMedicalHistoryScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMedicalHistoryScrollView.swift; sourceTree = "<group>"; };
+		CE697FA522E49D5300D73F09 /* MedHisAndLabResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedHisAndLabResult.swift; sourceTree = "<group>"; };
+		CE697FA622E49D5400D73F09 /* MedicalHistoryScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalHistoryScrollView.swift; sourceTree = "<group>"; };
 		CE76560A22E3A917002EC169 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
+		CE76560C22E3D09C002EC169 /* record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = record.swift; sourceTree = "<group>"; };
+		CE76560E22E3D894002EC169 /* uploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadViewController.swift; sourceTree = "<group>"; };
 		CE7949B822E2A22D00169EFD /* MedX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7949BB22E2A22D00169EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7949BD22E2A22D00169EFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				4ACF4EA122E3C8370093CD9C /* LethAPI.swift */,
+				9425B0EF22E415E500442670 /* DownloadHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -104,6 +137,7 @@
 				CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */,
 				CE3CFA7122E383F500B69D89 /* MedX Icon.PNG */,
 				CE3CFA7222E383F500B69D89 /* MedX Option View Record History.png */,
+				CE697F9E22E45D6500D73F09 /* MedX Main Page Dark Theme.png */,
 				CE3CFA7322E383F500B69D89 /* MedX Option Import New Record.png */,
 				CE3CFA7422E383F500B69D89 /* MedX Option Settings.png */,
 				CE3CFA7522E383F500B69D89 /* MedX Option Sign Out.png */,
@@ -148,6 +182,15 @@
 				CE3CFA8622E3951B00B69D89 /* QRScanner */,
 				CE3CFA6F22E383F500B69D89 /* Logos */,
 				CE7949BB22E2A22D00169EFD /* AppDelegate.swift */,
+				CE76560E22E3D894002EC169 /* uploadViewController.swift */,
+				CE697FA422E49D5300D73F09 /* FamilyMedicalHistoryScrollView.swift */,
+				CE697FA522E49D5300D73F09 /* MedHisAndLabResult.swift */,
+				CE697FA622E49D5400D73F09 /* MedicalHistoryScrollView.swift */,
+				CE697FA022E45E5200D73F09 /* Garamond.ttc */,
+				CE4A766B22E41A1900BCCA1C /* DoctorScanViewController.swift */,
+				2744F13D22E44B2B00723D79 /* PersonalInfoScrollViewController.swift */,
+				CE4A766C22E41A1A00BCCA1C /* DoctorTableViewController.swift */,
+				2744F13B22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard */,
 				CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */,
 				CE76560A22E3A917002EC169 /* tableViewController.swift */,
 				4ACF4EA022E3C8200093CD9C /* Helpers */,
@@ -157,7 +200,12 @@
 				CE7949C422E2A22E00169EFD /* LaunchScreen.storyboard */,
 				CE7949C722E2A22E00169EFD /* Info.plist */,
 				CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */,
+				CE4A766522E3FDA800BCCA1C /* record.swift */,
 				CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */,
+				CE76560C22E3D09C002EC169 /* record.swift */,
+				CE4A766722E4150C00BCCA1C /* KeychainService.swift */,
+				CE4A767122E41AD500BCCA1C /* Records.swift */,
+				CE697FA222E48FBD00D73F09 /* successViewController.swift */,
 			);
 			path = MedX;
 			sourceTree = "<group>";
@@ -239,10 +287,13 @@
 				CE3CFA7D22E383F500B69D89 /* MedX Option Settings.png in Resources */,
 				CE3CFA7F22E383F500B69D89 /* MedX Option Logo Icon.png in Resources */,
 				CE3CFA8022E383F500B69D89 /* MedX Logo.PNG in Resources */,
+				CE697FA122E45E5700D73F09 /* Garamond.ttc in Resources */,
 				CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */,
+				2744F13C22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard in Resources */,
 				CE3CFA7C22E383F500B69D89 /* MedX Option Import New Record.png in Resources */,
 				CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */,
 				CE3CFA7B22E383F500B69D89 /* MedX Option View Record History.png in Resources */,
+				CE697F9F22E45D6500D73F09 /* MedX Main Page Dark Theme.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +347,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE04BABA22E365C900CA33F5 /* qrCodeViewController.swift in Sources */,
+				CE4A766F22E41A1A00BCCA1C /* DoctorScanViewController.swift in Sources */,
 				941AF19122E3CED2002687EC /* FilePickerViewController.swift in Sources */,
 				CE3CFA8422E3840B00B69D89 /* FrontPageViewController.swift in Sources */,
+				CE4A767222E41AD500BCCA1C /* Records.swift in Sources */,
 				CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */,
+				9425B0F022E415E500442670 /* DownloadHelper.swift in Sources */,
 				CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */,
+				CE4A766622E3FDA800BCCA1C /* record.swift in Sources */,
 				CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */,
 				CE3CFA8922E3951B00B69D89 /* QRScannerView.swift in Sources */,
+				CE76560D22E3D09C002EC169 /* record.swift in Sources */,
+				CE697FA822E49D5400D73F09 /* MedHisAndLabResult.swift in Sources */,
+				CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */,
+				CE697FA722E49D5400D73F09 /* FamilyMedicalHistoryScrollView.swift in Sources */,
 				CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */,
+				CE697FA322E48FBD00D73F09 /* successViewController.swift in Sources */,
+				CE4A767022E41A1A00BCCA1C /* DoctorTableViewController.swift in Sources */,
+				2744F13E22E44B2C00723D79 /* PersonalInfoScrollViewController.swift in Sources */,
+				CE4A766822E4150C00BCCA1C /* KeychainService.swift in Sources */,
 				CE3CFA8A22E3951B00B69D89 /* QRScannerViewController.swift in Sources */,
+				CE697FA922E49D5400D73F09 /* MedicalHistoryScrollView.swift in Sources */,
 				4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LPXSSA59S3;
 				INFOPLIST_FILE = MedX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +538,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LPXSSA59S3;
 				INFOPLIST_FILE = MedX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
