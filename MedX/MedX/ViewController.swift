@@ -64,7 +64,6 @@ class ViewController: UIViewController, URLSessionDelegate {
                 guard let key = receivedPub["account"] as? String else {
                     return
                 }
-                print("The key is: \(key)")
                 sqliteOps.instance.createTableInSQLite(tableName: "pub")
                 sqliteOps.instance.prepareAndInsertToSQLite(table: "pub", field: "key", value: key)
                 self.signInRequest(publicKey: sqliteOps.instance.readFromSQLite(table: "pub"), password: password)
@@ -87,12 +86,12 @@ class ViewController: UIViewController, URLSessionDelegate {
                     return
                 }
                 self.defaults.set(token, forKey: "token")
-                print("The token is:"+(self.defaults.string(forKey: "token") ?? "not found"))
                 SBDMain.connect(withUserId: publicKey) { (user, error) in
                     guard error == nil else {   // Error.
                         return
                     }
                 }
+                KeychainService.savePassword(service: "lightstream", account: publicKey, data: password)
                 DispatchQueue.main.async {
                     let nav = self.storyboard?.instantiateViewController(withIdentifier: "nav")
                     self.present(nav!, animated: true, completion: nil)

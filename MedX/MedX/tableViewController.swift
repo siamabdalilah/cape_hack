@@ -12,18 +12,19 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var hospital: String?
     var records : [record] = []
     @IBOutlet weak var toLabel: UILabel!
-    
+    var api: LethAPI?
     @IBOutlet weak var recordLists: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        api = LethAPI()
         recordLists.delegate = self
         recordLists.dataSource = self
         recordLists.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         records = sqliteOps.instance.readFromSQLiteFiles()
         print(records)
         recordLists.reloadData()
-        toLabel.text = "Grannting access to"+(hospital ?? "not found")
+        toLabel.text = hospital ?? "not found"
         
         // Do any additional setup after loading the view.
     }
@@ -56,16 +57,22 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func grantAction(at indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .normal, title:"Grant", handler: {
             (action, view, completion) in
-            completion(true)
+            print("here is the info:")
+            let publicKey = sqliteOps.instance.readFromSQLite(table: "pub")
+            print(publicKey)
+            self.api!.grantAccess(acl: self.records[indexPath.row].acl, owner: publicKey, password: KeychainService.loadPassword(service: "lightstream", account: publicKey)!, to: self.toLabel.text!, permission: "read", completion: {response in
+            })
         })
         action.backgroundColor = UIColor.green
         return action
     }
-    
     func revokeAction(at indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .normal, title:"revoke", handler: {
             (action, view, completion) in
-            completion(true)
+            sqliteOps.instance.dropTable(table: "pub")
+            sqliteOps.instance.createTableInSQLite(tableName: "pub")
+            sqliteOps.instance.prepareAndInsertToSQLite(table: "pub", field: "key", value: "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e")
+            
         })
         action.backgroundColor = UIColor.red
         return action
