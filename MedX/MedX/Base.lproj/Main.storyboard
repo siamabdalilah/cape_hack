@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-588.40579710144937" y="127.90178571428571"/>
+            <point key="canvasLocation" x="-339" y="128"/>
         </scene>
         <!--Qr Code View Controller-->
         <scene sceneID="3rU-Ak-AsI">
@@ -126,13 +126,16 @@
                                 <color key="backgroundColor" red="0.44598835710000001" green="0.63513904809999999" blue="0.77864563470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Import New Record"/>
+                                <state key="normal" title="Upload Information"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="cTf-Z9-k7J" kind="show" id="MX3-UD-MLI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJA-Zj-Hn9" userLabel="PatientCareService">
                                 <rect key="frame" x="116" y="391" width="182" height="45"/>
@@ -157,7 +160,7 @@
                                 <color key="backgroundColor" red="0.44598835710000001" green="0.63513904809999999" blue="0.77864563470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="View Record History"/>
+                                <state key="normal" title="Enter information"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -205,7 +208,32 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="-339.13043478260875" y="784.82142857142856"/>
+            <point key="canvasLocation" x="-880" y="1225"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="u0F-wA-zwe">
+            <objects>
+                <viewController storyboardIdentifier="upload" id="cTf-Z9-k7J" customClass="uploadViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xoz-w0-bsG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBr-PN-Vx4">
+                                <rect key="frame" x="126" y="299" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="upload:" destination="cTf-Z9-k7J" eventType="touchUpInside" id="9HY-2B-v49"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Vx1-gN-YD3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKT-P9-EMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="1225"/>
         </scene>
         <!--Grant Access-->
         <scene sceneID="q5e-gy-QGf">
@@ -241,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0c-fV-S7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="1595"/>
+            <point key="canvasLocation" x="-1830" y="2145"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="mFt-yd-7Rl">
@@ -274,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed4-6o-EHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="925" y="1420"/>
+            <point key="canvasLocation" x="-881" y="2145"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o5L-Wr-Ybv">
@@ -292,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmJ-xw-16i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1249.2753623188407" y="784.82142857142856"/>
+            <point key="canvasLocation" x="-1829" y="1225"/>
         </scene>
     </scenes>
     <resources>

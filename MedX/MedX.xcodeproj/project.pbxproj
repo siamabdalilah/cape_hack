@@ -23,6 +23,8 @@
 		CE3CFA8922E3951B00B69D89 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8722E3951B00B69D89 /* QRScannerView.swift */; };
 		CE3CFA8A22E3951B00B69D89 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8822E3951B00B69D89 /* QRScannerViewController.swift */; };
 		CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560A22E3A917002EC169 /* tableViewController.swift */; };
+		CE76560D22E3D09C002EC169 /* record.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560C22E3D09C002EC169 /* record.swift */; };
+		CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560E22E3D894002EC169 /* uploadViewController.swift */; };
 		CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BB22E2A22D00169EFD /* AppDelegate.swift */; };
 		CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BD22E2A22D00169EFD /* ViewController.swift */; };
 		CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7949BF22E2A22D00169EFD /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		CE3CFA8722E3951B00B69D89 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		CE3CFA8822E3951B00B69D89 /* QRScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		CE76560A22E3A917002EC169 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
+		CE76560C22E3D09C002EC169 /* record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = record.swift; sourceTree = "<group>"; };
+		CE76560E22E3D894002EC169 /* uploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadViewController.swift; sourceTree = "<group>"; };
 		CE7949B822E2A22D00169EFD /* MedX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7949BB22E2A22D00169EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7949BD22E2A22D00169EFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				CE3CFA8622E3951B00B69D89 /* QRScanner */,
 				CE3CFA6F22E383F500B69D89 /* Logos */,
 				CE7949BB22E2A22D00169EFD /* AppDelegate.swift */,
+				CE76560E22E3D894002EC169 /* uploadViewController.swift */,
 				CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */,
 				CE76560A22E3A917002EC169 /* tableViewController.swift */,
 				CE7949BD22E2A22D00169EFD /* ViewController.swift */,
@@ -136,6 +141,7 @@
 				CE7949C722E2A22E00169EFD /* Info.plist */,
 				CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */,
 				CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */,
+				CE76560C22E3D09C002EC169 /* record.swift */,
 			);
 			path = MedX;
 			sourceTree = "<group>";
@@ -279,6 +285,8 @@
 				CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */,
 				CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */,
 				CE3CFA8922E3951B00B69D89 /* QRScannerView.swift in Sources */,
+				CE76560D22E3D09C002EC169 /* record.swift in Sources */,
+				CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */,
 				CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */,
 				CE3CFA8A22E3951B00B69D89 /* QRScannerViewController.swift in Sources */,
 			);
