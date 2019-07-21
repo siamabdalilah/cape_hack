@@ -47,7 +47,7 @@ extension DoctorScanViewController: QRScannerViewDelegate{
     
     func qrScanningSucceededWithCode(_ str: String?) {
         let VC2 = self.storyboard!.instantiateViewController(withIdentifier: "doctortable") as! DoctorTableViewController
-        VC2.hospital = str
+        VC2.dataString = str
         self.navigationController!.pushViewController(VC2, animated: true)
         
     }

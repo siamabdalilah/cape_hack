@@ -9,7 +9,7 @@
 import UIKit
 
 class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-    
+    var dataString: String?
     var fileAddresses:[String] = []
     var fileNumbers: [Int] = []
     var fileNames: [String] = []
@@ -38,7 +38,7 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     
     func convertQRToJSonArray(){
         //first step is to convert json string to json object
-        var string = "[{\"fileNumber\":1,\"fileName\":{\"Name\":\"BrokenLeg\",\"Address\":\"publicKey\",\"ACL\":\"Lists\"}},{\"fileNumber\":2,\"fileName\":{\"Name\":\"BrokenLeg\",\"Address\":\"publicKey\",\"ACL\":\"Lists\"}}]"
+        var string = dataString!
         string = "{\"records\": \(string)}"
         let data = string.data(using: .utf8)!
         print("string: \(string)")
