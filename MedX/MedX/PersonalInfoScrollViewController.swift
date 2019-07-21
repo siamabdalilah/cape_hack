@@ -86,9 +86,12 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
         do {
             let encoder = JSONEncoder()
             let jsonData = try encoder.encode(para)
-            print(String(decoding: jsonData, as: UTF8.self))
+            let jsonString = String(decoding: jsonData,as: UTF8.self)
+            print(jsonString)
+            let data: Data? = jsonString.data(using: .utf8)
+            print(data ?? "Missing data collected") // data ready for upload
         } catch {
-            print("fml")
+            print("error happened")
         }
     }
     
