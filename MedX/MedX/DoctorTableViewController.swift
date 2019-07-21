@@ -123,10 +123,10 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let fileName = fileNames[indexPath.row]
-//        let fileMeta = fileAddresses[indexPath.row]
-//        let file:[String:String] = [fileName:fileMeta]
-//        DownloadHelper.download(files: file, token: <#T##String#>, completion: <#T##(DataResponse<Any>) -> ()#>)
+        let fileName = fileNames[indexPath.row]
+        let fileMeta = fileAddresses[indexPath.row]
+        let file:[String:String] = [fileName:fileMeta]
+        DownloadHelper.download(files: file) { _ in}
     }
     
     
