@@ -198,7 +198,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preferred Hospital List:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F78-pS-EeG" userLabel="Insurance ID:">
-                                                <rect key="frame" x="43" y="793" width="156" height="20"/>
+                                                <rect key="frame" x="43" y="766" width="156" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -221,12 +221,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78l-af-xa2" userLabel="Address:">
                                                 <rect key="frame" x="43" y="445" width="58" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyw-P6-ou6" userLabel="Insurance Provider:">
-                                                <rect key="frame" x="192" y="962" width="30" height="20"/>
                                                 <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -338,7 +332,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0eG-FA-Wdd">
-                                                <rect key="frame" x="81" y="830" width="240" height="128"/>
+                                                <rect key="frame" x="81" y="804" width="240" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -353,15 +347,22 @@
                                                     <segue destination="90o-jb-UVk" kind="show" id="elN-ze-xni"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fq-po-Hu2">
+                                                <rect key="frame" x="183" y="951" width="49" height="30"/>
+                                                <state key="normal" title="Next"/>
+                                                <connections>
+                                                    <action selector="NextAndSubmit:" destination="XS6-3L-DYW" eventType="touchUpInside" id="8aX-gG-Bq6"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.58431372549019611" green="0.75294117647058822" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="8fq-po-Hu2" secondAttribute="bottom" constant="19" id="0PF-N5-QBq"/>
+                                            <constraint firstItem="8fq-po-Hu2" firstAttribute="top" secondItem="bog-Ef-JAQ" secondAttribute="bottom" constant="879.5" id="6jb-pW-uXK"/>
                                             <constraint firstItem="bog-Ef-JAQ" firstAttribute="leading" secondItem="CeV-Ja-1TU" secondAttribute="leading" constant="139" id="6vh-i9-EVb"/>
-                                            <constraint firstItem="xyw-P6-ou6" firstAttribute="top" secondItem="bog-Ef-JAQ" secondAttribute="bottom" constant="890.5" id="Dlp-AT-LI6"/>
                                             <constraint firstItem="bog-Ef-JAQ" firstAttribute="top" secondItem="CeV-Ja-1TU" secondAttribute="top" constant="52" id="GfA-49-Z3J"/>
-                                            <constraint firstItem="xyw-P6-ou6" firstAttribute="leading" secondItem="CeV-Ja-1TU" secondAttribute="leading" constant="192" id="HbQ-fM-3Nk"/>
-                                            <constraint firstAttribute="bottom" secondItem="xyw-P6-ou6" secondAttribute="bottom" constant="18" id="dba-Bn-GpP"/>
-                                            <constraint firstAttribute="trailing" secondItem="xyw-P6-ou6" secondAttribute="trailing" constant="192" id="hCH-Cs-WRK"/>
+                                            <constraint firstAttribute="trailing" secondItem="8fq-po-Hu2" secondAttribute="trailing" constant="182" id="P3c-2I-rDw"/>
+                                            <constraint firstItem="8fq-po-Hu2" firstAttribute="leading" secondItem="CeV-Ja-1TU" secondAttribute="leading" constant="183" id="hQx-kC-KzB"/>
                                             <constraint firstAttribute="trailing" secondItem="bog-Ef-JAQ" secondAttribute="trailing" constant="133" id="mCq-7R-Feh"/>
                                         </constraints>
                                     </view>
@@ -387,9 +388,20 @@
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="AddressField" destination="rKh-BW-YOf" id="eSo-ku-TqG"/>
+                        <outlet property="AgeField" destination="bBB-eu-gAO" id="4Xu-BH-WJh"/>
                         <outlet property="BloodTypeField" destination="BqA-ms-v3C" id="edN-lP-TzN"/>
+                        <outlet property="CityField" destination="Ouh-UX-VET" id="VbU-28-gHD"/>
+                        <outlet property="EmailField" destination="6K8-v7-4it" id="sTd-UH-dfR"/>
+                        <outlet property="EmergencyContactField" destination="5ek-e6-r4S" id="IT9-U2-Z40"/>
                         <outlet property="GenderField" destination="FPp-5O-78w" id="wOq-Zc-3XD"/>
+                        <outlet property="InsuranceIDField" destination="gp7-8i-p0k" id="0dY-nC-FCL"/>
+                        <outlet property="InsuranceProviderLogo" destination="fhE-rf-M80" id="OKv-kO-pwe"/>
+                        <outlet property="NameField" destination="KMm-8f-0Oq" id="nna-Ba-CQB"/>
+                        <outlet property="PhoneField" destination="7br-5p-1TO" id="QL4-LY-Lys"/>
                         <outlet property="PreferredHospitalList" destination="0eG-FA-Wdd" id="Tvg-c5-wDe"/>
+                        <outlet property="PreferredHospitalListField" destination="0eG-FA-Wdd" id="SWG-Bv-Aj3"/>
+                        <outlet property="StateField" destination="6FE-Bv-UU3" id="MDb-n0-UNa"/>
                         <outlet property="txtDatePicker" destination="5h6-3N-v6V" id="oQ9-ga-43b"/>
                     </connections>
                 </viewController>
@@ -652,6 +664,6 @@
         <image name="MedX Option Logo Icon.png" width="720" height="1440"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nGS-Mt-Ejq"/>
+        <segue reference="elN-ze-xni"/>
     </inferredMetricsTieBreakers>
 </document>

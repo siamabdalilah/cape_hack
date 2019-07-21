@@ -13,7 +13,6 @@ class FrontPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
-
         // Do any additional setup after loading the view.
     }
 //    @IBAction func popScanner(_ sender: UIButton) {

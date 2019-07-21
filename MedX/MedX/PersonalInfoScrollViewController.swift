@@ -10,14 +10,21 @@ import UIKit
 
 class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    
     @IBOutlet weak var PreferredHospitalList: UITextView!
-    
     @IBOutlet weak var txtDatePicker: UITextField!
-    
     @IBOutlet weak var GenderField: UITextField!
-    
     @IBOutlet weak var BloodTypeField: UITextField!
+    @IBOutlet weak var NameField: UITextField!
+    @IBOutlet weak var AgeField: UITextField!
+    @IBOutlet weak var EmailField: UITextField!
+    @IBOutlet weak var PreferredHospitalListField: UITextView!
+    @IBOutlet weak var InsuranceIDField: UITextField!
+    @IBOutlet weak var InsuranceProviderLogo: UITextField!
+    @IBOutlet weak var StateField: UITextField!
+    @IBOutlet weak var CityField: UITextField!
+    @IBOutlet weak var AddressField: UITextField!
+    @IBOutlet weak var EmergencyContactField: UITextField!
+    @IBOutlet weak var PhoneField: UITextField!
     
     var currentTextField = UITextField()
     var pickerView = UIPickerView()
@@ -26,6 +33,23 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
     var bloodType:[String] = []
     
     let datePicker = UIDatePicker()
+    
+    static let fields = [
+        "Name",
+        "Gender",
+        "Birthday",
+        "Age",
+        "Email",
+        "Phone Number",
+        "Primary Emergency Contact",
+        "Address",
+        "City",
+        "State",
+        "BloodType",
+        "Insurance Provider",
+        "Insurance ID",
+        "Preferred Hospital List"
+    ]
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -37,6 +61,35 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
         
         PreferredHospitalList!.layer.borderWidth = 1
         PreferredHospitalList!.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    
+    @IBAction func NextAndSubmit(_ sender: Any) {
+        let para: [String:String] = [
+            "Name": NameField!.text ?? "Your Name?",
+            "Gender": GenderField!.text ?? "Your Gender?",
+            "Birthday": txtDatePicker!.text ?? "Your Birthday?",
+            "Age": AgeField!.text ?? "Your Age?",
+            "Email": EmailField!.text ?? "Your Email?",
+            "Phone Number": PhoneField!.text ?? "Your Phone Number?",
+            "Primary Emergency Contact": EmergencyContactField!.text ?? "Your Primary Emergency Contact?",
+            "Address": AddressField!.text ?? "Your Address?",
+            "City": CityField!.text ?? "Your City?",
+            "State": StateField!.text ?? "Your State?",
+            "BloodType": BloodTypeField!.text ?? "Your BloodType?",
+            "Insurance Provider": InsuranceProviderLogo!.text ?? "Your Insurance Provider?",
+            "Insurance ID": InsuranceIDField!.text ?? "Your Insurance ID?",
+            "Preferred Hospital List": PreferredHospitalList!.text ?? "Your Preferred Hospital List?"
+        ]
+//        let valid = JSONSerialization.isValidJSONObject(jsonObject)
+//        print(valid)
+        do {
+            let encoder = JSONEncoder()
+            let jsonData = try encoder.encode(para)
+            print(String(decoding: jsonData, as: UTF8.self))
+        } catch {
+            print("fml")
+        }
     }
     
     func showDatePicker(){
