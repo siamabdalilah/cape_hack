@@ -18,6 +18,10 @@ class FilePickerViewController: UIViewController {
         "txt":  "text/plain"
     ]
     
+    override func viewDidLoad() {
+        view.backgroundColor = #colorLiteral(red: 0.2313460708, green: 0.2313860059, blue: 0.2313406467, alpha: 1)
+        selectedFiles.backgroundColor = #colorLiteral(red: 0.2313460708, green: 0.2313860059, blue: 0.2313406467, alpha: 1)
+    }
     
     @IBAction func importFiles(_ sender: Any) {
         pickFile()
@@ -156,7 +160,10 @@ extension FilePickerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style:.subtitle, reuseIdentifier: "cell")
         cell.textLabel?.text = Array(filesDict.keys)[indexPath.row]
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.text = "description"
+        cell.detailTextLabel?.textColor = UIColor.white
         return cell
     }
     
