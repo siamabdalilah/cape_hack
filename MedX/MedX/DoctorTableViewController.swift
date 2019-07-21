@@ -39,7 +39,7 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     func convertQRToJSonArray(){
         //first step is to convert json string to json object
         var string = dataString!
-//        string = "{\"record\": \(string)}"
+        string = "{\"records\": \(string)}"
         let data = string.data(using: .utf8)!
         print("string: \(string)")
         print("data: \(data)")
