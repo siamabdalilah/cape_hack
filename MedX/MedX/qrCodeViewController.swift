@@ -52,6 +52,8 @@ class qrCodeViewController: UIViewController {
         }
         
     }
+    @IBAction func done(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 

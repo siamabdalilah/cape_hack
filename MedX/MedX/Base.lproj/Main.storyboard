@@ -103,7 +103,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="5Tl-vi-DKz" kind="presentation" id="ESR-6O-Teu"/>
+                                    <action selector="done:" destination="siR-jy-l0T" eventType="touchUpInside" id="xVD-3j-nE5"/>
+                                    <segue destination="5Tl-vi-DKz" kind="presentation" id="VM9-CZ-p1V"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkl-hQ-5dY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-988.40579710144937" y="2915.625"/>
+            <point key="canvasLocation" x="-887" y="2849"/>
         </scene>
         <!--Grant Access-->
         <scene sceneID="q5e-gy-QGf">
@@ -314,7 +315,7 @@
                                 <state key="normal" title="Upload" image="addfile"/>
                                 <connections>
                                     <action selector="uploadSelectedFiles:" destination="0oA-od-YQh" eventType="touchUpInside" id="R3Y-bu-co5"/>
-                                    <segue destination="MbV-6T-cBe" kind="presentation" id="cOa-Fu-Sfd"/>
+                                    <segue destination="MbV-6T-cBe" kind="presentation" id="zt9-YX-pFH"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Toh-Bb-pII">
@@ -367,7 +368,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="eTi-3n-J5x">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="gn8-YP-RYk" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabC" automaticallyAdjustsScrollViewInsets="NO" id="gn8-YP-RYk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fCG-4E-NPp">
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" id="ZYP-M8-0D3">
@@ -678,10 +679,10 @@
             </objects>
             <point key="canvasLocation" x="376.81159420289856" y="537.72321428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Success View Controller-->
         <scene sceneID="6wI-48-Hed">
             <objects>
-                <viewController id="MbV-6T-cBe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="success" id="MbV-6T-cBe" customClass="successViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mGK-Mp-hIW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -707,7 +708,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="gn8-YP-RYk" kind="presentation" id="SY1-aP-GL2"/>
+                                    <action selector="done:" destination="MbV-6T-cBe" eventType="touchUpInside" id="s0h-MF-aVW"/>
+                                    <segue destination="5Tl-vi-DKz" kind="popoverPresentation" popoverAnchorView="tUf-aY-c4M" id="qUe-uH-2QP">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -731,6 +735,6 @@
         <image name="writing" width="21.5" height="19.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SY1-aP-GL2"/>
+        <segue reference="VM9-CZ-p1V"/>
     </inferredMetricsTieBreakers>
 </document>
