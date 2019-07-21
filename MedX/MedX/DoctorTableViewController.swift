@@ -73,7 +73,7 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style:.subtitle, reuseIdentifier: "cell")
         cell.textLabel?.text = "\(fileNames[indexPath.row])"
-        cell.detailTextLabel?.text = "description"
+        cell.detailTextLabel?.text = "\(fileAddresses[indexPath.row])"
         return cell
     }
     
@@ -108,9 +108,6 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
         return action
     }
     
-    
-    
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         let label = UILabel(frame: CGRect(x: 10,y: 5,width: tableView.frame.width,height:20))
@@ -125,6 +122,17 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let fileName = fileNames[indexPath.row]
+        let fileMeta = fileAddresses[indexPath.row]
+        let file:[String:String] = [fileName:fileMeta]
+        DownloadHelper.download(files: file) { _ in
+            let alert = UIAlertController(title: "Done", message: "File Downloaded.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
     
     
     /*

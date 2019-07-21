@@ -18,7 +18,6 @@ class DownloadHelper{
                 write(fileName: name, response: response, completion: completion)
             })
         }
-        
     }
     static func download(files: [String: String], completion: @escaping (DataResponse<Any>)->()){
         download(files: files, token: UserDefaults.standard.string(forKey: "token")!, completion: completion)
