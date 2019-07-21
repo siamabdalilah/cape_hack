@@ -39,21 +39,19 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     func convertQRToJSonArray(){
         //first step is to convert json string to json object
         var string = dataString!
-       // string = "{\"records\": \(string)}"
+//        string = "{\"record\": \(string)}"
         let data = string.data(using: .utf8)!
         print("string: \(string)")
         print("data: \(data)")
         let decoder = JSONDecoder()
         do {
-            let object = try decoder.decode(Record.self, from: data)
-           // for index in 0..<object.records.count{
+            let object = try decoder.decode(Records.self, from: data)
+            for index in 0..<object.records.count{
 //                fileNumbers.append(object.records[index].fileNumber)
-             //   fileNames.append(object.records[index].Name)
-          //  fileAddresses.append(object.records[index].Meta)
-            print(object.Name)
-            fileNames.append(object.Name)
-            fileAddresses.append(object.Meta)
-         //   }
+                fileNames.append(object.records[index].Name)
+           fileAddresses.append(object.records[index].Meta)
+           // print(object.Name)
+            }
         } catch let error as NSError {
             print("error: \(error)")
         }

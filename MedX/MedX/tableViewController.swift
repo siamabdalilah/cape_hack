@@ -14,7 +14,7 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var toLabel: UILabel!
     var api: LethAPI?
     @IBOutlet weak var recordLists: UITableView!
-    var sharedFiles: String = ""
+    var sharedFiles: String = "["
     var first = true
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,7 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     @IBAction func generate(_ sender: UIBarButtonItem) {
         let qrC = self.storyboard?.instantiateViewController(withIdentifier: "qrCode") as! qrCodeViewController
-        qrC.dataString = sharedFiles
+        qrC.dataString = sharedFiles+"]"
         self.present(qrC, animated: true, completion: nil)
     }
     func revokeAction(at indexPath: IndexPath) -> UIContextualAction{
