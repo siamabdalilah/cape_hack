@@ -24,20 +24,25 @@ class FilePickerViewController: UIViewController {
     }
     
     @IBAction func uploadSelectedFiles(_ sender: Any) {
-        checkUploadability()
+        if (!checkUploadability()){
+            // todo: wentao
+            return
+        }
+        updateDatabase()
         
         let api = LethAPI()
-        api.signUp(password: "pass123")
-        api.signIn(account: "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e", password: "WelcomeToSirius")
         
-        let filesToUpload = getFiles()
+        let filesToUpload = filesDict
         
         for (name, data) in filesToUpload {
             let ext = String(name.split(separator: ".").last ?? "")
             if let mimeType = types[ext] {
-                api.addFile(name: name, type: mimeType, data: data)
+                print("Name of file \(name)")
+                print("data:")
+                print(String(decoding: data, as: UTF8.self))
+                api.addFile(name: name, type: mimeType, data: data, completion: {response in print("File Uploaded")})
 //                print(String(decoding: data, as: UTF8.self))
-                print("file uploaded")
+//                print("file uploaded")
             } else {
                 // TODO
             }
@@ -54,14 +59,18 @@ class FilePickerViewController: UIViewController {
     }
     @IBOutlet weak var numFiles: UITextView!
     
-    private var files = [URL]() {
+    private var filesDict = [String: Data]() {
         didSet {
-            numFiles.text = "Number of Files: \(String(files.count))"
+            numFiles.text = "Number of Files: \(String(filesDict.count))"
         }
     }
   
-    private func checkUploadability(){
-        // TODO
+    private func checkUploadability() -> Bool{
+        // TODO: wentao
+        return true
+    }
+    private func updateDatabase(){
+        // todo: wentao
     }
 
     private func pickFile(){
@@ -74,7 +83,7 @@ class FilePickerViewController: UIViewController {
             return
         }
 
-        let documentTypes: [String] = [kUTTypeImage as String, kUTTypePDF as String, kUTTypeText as String]
+        let documentTypes: [String] = [kUTTypeImage as String, kUTTypePDF as String, kUTTypeText as String, kUTTypeJSON as String]
         let documentPicker = UIDocumentPickerViewController(documentTypes: documentTypes, in: UIDocumentPickerMode.import)
         
         
@@ -82,18 +91,6 @@ class FilePickerViewController: UIViewController {
         documentPicker.allowsMultipleSelection = true //false // for now
         present(documentPicker, animated: true, completion: nil)
     }
-    
-    // returns [String: Data] dictionaries with names and file for all URLs in selected
-    private func getFiles() -> [String:Data]{
-        var returnVal = [String:Data]()
-        for file in files{
-            let data = FileManager.default.contents(atPath: file.path) ?? "Error: Unable to get file".data(using: String.Encoding.utf8)
-            returnVal[file.path] = data
-        }
-        
-        return returnVal
-    }
-    
 
     /*
     // MARK: - Navigation
@@ -128,8 +125,9 @@ extension FilePickerViewController: UIDocumentPickerDelegate{
                     print("Error")
                 }
             }
+            let data = FileManager.default.contents(atPath: url.path) ?? "Error: Unable to get file".data(using: String.Encoding.utf8)
+            self.filesDict[url.lastPathComponent] = data
             
-            self.files.append(sandboxUrl)
         }
     }
 }
@@ -140,14 +138,15 @@ extension FilePickerViewController: UITableViewDelegate{
 
 extension FilePickerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.files.count
+        return self.filesDict.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style:.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = "\(self.files[indexPath.row].lastPathComponent)"
+        cell.textLabel?.text = "PLACEHOLDER)"
         return cell
     }
-    
-    
 }
+
+
+
