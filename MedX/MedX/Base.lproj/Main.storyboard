@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -775,6 +774,15 @@
                                     <constraint firstItem="p7q-ge-tkb" firstAttribute="leading" secondItem="18c-S8-l46" secondAttribute="leading" id="tZW-he-OSj"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBW-qw-27p">
+                                <rect key="frame" x="184" y="742" width="47" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="4B8-kS-ph7" kind="show" id="Fns-9B-x27"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -953,15 +961,6 @@
                                     <constraint firstItem="xrr-IQ-FBN" firstAttribute="leading" secondItem="o1x-0f-Uvh" secondAttribute="leading" id="xiy-VY-0l3"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMA-AL-ejK">
-                                <rect key="frame" x="185" y="774" width="45" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <segue destination="bQz-Dp-Mib" kind="show" id="7el-Ap-MjI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -989,7 +988,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yz0-b1-me3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2712" y="514"/>
+            <point key="canvasLocation" x="2771" y="269"/>
         </scene>
         <!--Medical History Scroll View-->
         <scene sceneID="5Vc-0m-Pxm">
@@ -1060,7 +1059,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="Next"/>
                                                 <connections>
-                                                    <segue destination="4B8-kS-ph7" kind="show" id="Z83-20-cbo"/>
+                                                    <segue destination="bQz-Dp-Mib" kind="show" id="Kbl-CQ-a7x"/>
                                                 </connections>
                                             </button>
                                         </subviews>
