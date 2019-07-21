@@ -1,5 +1,5 @@
 //
-//  tableViewController.swift
+//  DoctorTableViewController.swift
 //  MedX
 //
 //  Created by Xiangmin Zhang on 7/20/19.
@@ -8,36 +8,71 @@
 
 import UIKit
 
-class tableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+    var dataString: String?
+    var fileAddresses:[String] = []
+    var fileNumbers: [Int] = []
+    var fileNames: [String] = []
+    var qrData: [Dictionary<String , Any>]?
+    let theData:Records? = nil
+    
+    
+    
+    
     var hospital: String?
-    var records : [record] = []
+    
     @IBOutlet weak var toLabel: UILabel!
-    var api: LethAPI?
-    @IBOutlet weak var recordLists: UITableView!
-    var sharedFiles: String = "["
-    var first = true
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        api = LethAPI()
-        recordLists.delegate = self
-        recordLists.dataSource = self
-        recordLists.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        records = sqliteOps.instance.readFromSQLiteFiles()
-        print(records)
-        recordLists.reloadData()
-        toLabel.text = hospital ?? "not found"
-        
+        convertQRToJSonArray()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.reloadData()
+        toLabel.text = "Grannting access to"+(hospital ?? "not found")
+        print("the content is: \(hospital)")
         // Do any additional setup after loading the view.
     }
     
     
+    func convertQRToJSonArray(){
+        //first step is to convert json string to json object
+        var string = dataString!
+        string = "{\"records\": \(string)}"
+        let data = string.data(using: .utf8)!
+        print("string: \(string)")
+        print("data: \(data)")
+        let decoder = JSONDecoder()
+        do {
+            let object = try decoder.decode(Records.self, from: data)
+            for index in 0..<object.records.count{
+                //                fileNumbers.append(object.records[index].fileNumber)
+                fileNames.append(object.records[index].Name)
+                fileAddresses.append(object.records[index].Meta)
+                // print(object.Name)
+            }
+        } catch let error as NSError {
+            print("error: \(error)")
+        }
+        
+        //parse json into structs
+        
+    }
+    
+    //    func decodeJSonArray(array: [Dictionary<String , Any>]){
+    //        let decode = JSONDecoder.init()
+    //        decode.decode(Records.self, from: <#T##Data#>)
+    //    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
+        return fileNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style:.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = "\(records[indexPath.row].name)"
+        cell.textLabel?.text = "\(fileNames[indexPath.row])"
         cell.detailTextLabel?.text = "description"
         return cell
     }
@@ -58,33 +93,16 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func grantAction(at indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .normal, title:"Grant", handler: {
             (action, view, completion) in
-            print("here is the info:")
-            let publicKey = sqliteOps.instance.readFromSQLite(table: "pub")
-            print(publicKey)
-            self.api!.grantAccess(acl: self.records[indexPath.row].acl, owner: publicKey, password: KeychainService.loadPassword(service: "lightstream", account: publicKey)!, to: self.toLabel.text!, permission: "read", completion: {response in
-            })
-            if self.first {
-                self.sharedFiles += "{\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
-                self.first = false
-            }else{
-                self.sharedFiles += ",{\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
-            }
+            completion(true)
         })
         action.backgroundColor = UIColor.green
         return action
     }
-    @IBAction func generate(_ sender: UIBarButtonItem) {
-        let qrC = self.storyboard?.instantiateViewController(withIdentifier: "qrCode") as! qrCodeViewController
-        qrC.dataString = sharedFiles+"]"
-        self.present(qrC, animated: true, completion: nil)
-    }
+    
     func revokeAction(at indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .normal, title:"revoke", handler: {
             (action, view, completion) in
-            sqliteOps.instance.dropTable(table: "pub")
-            sqliteOps.instance.createTableInSQLite(tableName: "pub")
-            sqliteOps.instance.prepareAndInsertToSQLite(table: "pub", field: "key", value: "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e")
-            
+            completion(true)
         })
         action.backgroundColor = UIColor.red
         return action

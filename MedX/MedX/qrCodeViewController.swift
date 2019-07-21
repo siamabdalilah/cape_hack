@@ -10,6 +10,7 @@ import UIKit
 import SQLite3
 class qrCodeViewController: UIViewController {
     var db : OpaquePointer?
+    var dataString = ""
     @IBOutlet weak var qrImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,7 @@ class qrCodeViewController: UIViewController {
     
     func QRtest(){
         
-        var QRstring = sqliteOps.instance.readFromSQLite(table: "pub")
+        var QRstring = dataString
         print("The key is:\(QRstring)")
         let data = QRstring.data(using: String.Encoding.ascii)
         

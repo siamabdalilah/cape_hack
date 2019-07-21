@@ -28,7 +28,6 @@ class FilePickerViewController: UIViewController {
             // todo: wentao
             return
         }
-        updateDatabase()
         
         let api = LethAPI()
         
@@ -38,13 +37,29 @@ class FilePickerViewController: UIViewController {
             let ext = String(name.split(separator: ".").last ?? "")
             if let mimeType = types[ext] {
                 print("Name of file \(name)")
-                print("data:")
-                print(String(decoding: data, as: UTF8.self))
-                api.addFile(name: name, type: mimeType, data: data, completion: {response in print("File Uploaded")})
-//                print(String(decoding: data, as: UTF8.self))
-//                print("file uploaded")
+                api.addFile(name: name, type: mimeType, data: data, completion: {response in
+                    do {
+                        guard let receivedPub = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any]
+                            else {
+                                print("Could not get JSON from responseData as dictionary")
+                                return
+                        }
+                        print(receivedPub.description)
+                        guard let loc = receivedPub["meta"] as? String else {
+                            return
+                        }
+                        guard let acl = receivedPub["acl"] as? String else {
+                            return
+                        }
+                        sqliteOps.instance.createTableInSQLiteFiles(tableName: "userFiles")
+                        sqliteOps.instance.prepareAndInsertToSQLiteFiles(table: "userFiles", location: loc, name: name, acl: acl)
+                    } catch  {
+                        print("error parsing response from POST on /todos")
+                        return
+                    }
+                })
             } else {
-                // TODO
+                print("invalid file")
             }
             
         }
@@ -66,11 +81,7 @@ class FilePickerViewController: UIViewController {
     }
   
     private func checkUploadability() -> Bool{
-        // TODO: wentao
         return true
-    }
-    private func updateDatabase(){
-        // todo: wentao
     }
 
     private func pickFile(){
@@ -129,13 +140,13 @@ extension FilePickerViewController: UIDocumentPickerDelegate{
             self.filesDict[url.lastPathComponent] = data
             
         }
+        self.selectedFiles.reloadData()
     }
 }
 
 extension FilePickerViewController: UITableViewDelegate{
-   
+    
 }
-
 extension FilePickerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.filesDict.count
@@ -143,9 +154,19 @@ extension FilePickerViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style:.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = "PLACEHOLDER)"
+        cell.textLabel?.text = Array(filesDict.keys)[indexPath.row]
+        cell.detailTextLabel?.text = "description"
         return cell
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return  1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
 }
 
 
