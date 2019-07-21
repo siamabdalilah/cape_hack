@@ -74,6 +74,8 @@ class ViewController: UIViewController, URLSessionDelegate {
                     self.progress.isHidden = true
                     return
                 }
+                sqliteOps.instance.dropTable(table: "pub")
+                sqliteOps.instance.dropTable(table: "userFiles")
                 sqliteOps.instance.createTableInSQLite(tableName: "pub")
                 sqliteOps.instance.prepareAndInsertToSQLite(table: "pub", field: "key", value: key)
                 self.signInRequest(publicKey: sqliteOps.instance.readFromSQLite(table: "pub"), password: password)
