@@ -28,7 +28,7 @@ class DownloadHelper{
         let pathUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
         return FileManager.default.fileExists(atPath: pathUrl.path)
     }
-
+    
     private static func write(fileName: String, response: DataResponse<Any>, completion: @escaping (DataResponse<Any>)->()){
         let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
         do {
