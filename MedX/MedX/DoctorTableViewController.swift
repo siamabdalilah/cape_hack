@@ -21,7 +21,6 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     
     var hospital: String?
     
-    @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,6 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.reloadData()
-        toLabel.text = "Grannting access to"+(hospital ?? "not found")
         print("the content is: \(hospital)")
         // Do any additional setup after loading the view.
     }

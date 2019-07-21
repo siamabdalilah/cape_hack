@@ -62,6 +62,7 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let publicKey = sqliteOps.instance.readFromSQLite(table: "pub")
             print(publicKey)
             self.api!.grantAccess(acl: self.records[indexPath.row].acl, owner: publicKey, password: KeychainService.loadPassword(service: "lightstream", account: publicKey)!, to: self.toLabel.text!, permission: "read", completion: {response in
+                print(String(decoding: response.data!, as: UTF8.self))
             })
             if self.first {
                 self.sharedFiles += " {\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"

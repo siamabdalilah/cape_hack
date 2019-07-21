@@ -101,6 +101,7 @@ class ViewController: UIViewController, URLSessionDelegate {
                     return
                 }
                 self.defaults.set(token, forKey: "token")
+                print("token is:"+token)
                 self.progress.setProgress(1.0, animated: true)
                 KeychainService.savePassword(service: "lightstream", account: publicKey, data: password)
                 DispatchQueue.main.async {
