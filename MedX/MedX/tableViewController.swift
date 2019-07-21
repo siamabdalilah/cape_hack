@@ -10,7 +10,7 @@ import UIKit
 
 class tableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var hospital: String?
-    var record = ["first","second","third", "fourth","fifth"]
+    var records : [record] = []
     @IBOutlet weak var toLabel: UILabel!
     
     @IBOutlet weak var recordLists: UITableView!
@@ -20,6 +20,8 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         recordLists.delegate = self
         recordLists.dataSource = self
         recordLists.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        records = sqliteOps.instance.readFromSQLiteFiles()
+        print(records)
         recordLists.reloadData()
         toLabel.text = "Grannting access to"+(hospital ?? "not found")
         
@@ -28,12 +30,12 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style:.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = "\(record[indexPath.row])"
+        cell.textLabel?.text = "\(records[indexPath.row].name)"
         cell.detailTextLabel?.text = "description"
         return cell
     }
@@ -50,7 +52,7 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let revoke = revokeAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [grant,revoke])
     }
-   
+    
     func grantAction(at indexPath: IndexPath) -> UIContextualAction{
         let action = UIContextualAction(style: .normal, title:"Grant", handler: {
             (action, view, completion) in

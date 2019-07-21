@@ -24,6 +24,7 @@
 		CE3CFA8422E3840B00B69D89 /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */; };
 		CE3CFA8922E3951B00B69D89 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8722E3951B00B69D89 /* QRScannerView.swift */; };
 		CE3CFA8A22E3951B00B69D89 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CFA8822E3951B00B69D89 /* QRScannerViewController.swift */; };
+		CE4A766622E3FDA800BCCA1C /* record.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A766522E3FDA800BCCA1C /* record.swift */; };
 		CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76560A22E3A917002EC169 /* tableViewController.swift */; };
 		CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BB22E2A22D00169EFD /* AppDelegate.swift */; };
 		CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7949BD22E2A22D00169EFD /* ViewController.swift */; };
@@ -35,8 +36,8 @@
 /* Begin PBXFileReference section */
 		13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.release.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.release.xcconfig"; sourceTree = "<group>"; };
 		295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.debug.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.debug.xcconfig"; sourceTree = "<group>"; };
-		941AF19022E3CED2002687EC /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
 		4ACF4EA122E3C8370093CD9C /* LethAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LethAPI.swift; sourceTree = "<group>"; };
+		941AF19022E3CED2002687EC /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
 		9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrCodeViewController.swift; sourceTree = "<group>"; };
 		CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sqliteOps.swift; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
 		CE3CFA8722E3951B00B69D89 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		CE3CFA8822E3951B00B69D89 /* QRScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		CE4A766522E3FDA800BCCA1C /* record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = record.swift; sourceTree = "<group>"; };
 		CE76560A22E3A917002EC169 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 		CE7949B822E2A22D00169EFD /* MedX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7949BB22E2A22D00169EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				CE7949C422E2A22E00169EFD /* LaunchScreen.storyboard */,
 				CE7949C722E2A22E00169EFD /* Info.plist */,
 				CE04BAB922E365C900CA33F5 /* qrCodeViewController.swift */,
+				CE4A766522E3FDA800BCCA1C /* record.swift */,
 				CE04BABB22E3756F00CA33F5 /* sqliteOps.swift */,
 			);
 			path = MedX;
@@ -300,6 +303,7 @@
 				CE3CFA8422E3840B00B69D89 /* FrontPageViewController.swift in Sources */,
 				CE7949BE22E2A22D00169EFD /* ViewController.swift in Sources */,
 				CE76560B22E3A917002EC169 /* tableViewController.swift in Sources */,
+				CE4A766622E3FDA800BCCA1C /* record.swift in Sources */,
 				CE04BABC22E3756F00CA33F5 /* sqliteOps.swift in Sources */,
 				CE3CFA8922E3951B00B69D89 /* QRScannerView.swift in Sources */,
 				CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */,
