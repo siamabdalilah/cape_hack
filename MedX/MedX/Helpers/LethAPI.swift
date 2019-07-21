@@ -24,10 +24,12 @@ import Alamofire
 //api.addFile(name: "HelloWorldv3.json", type: "application/json", data: data!, completion: {response in
 //print(response)
 //})
+//api.grantAccess(acl: "0x46B676873864a12eC3A57C396fF98B1F1B96f272", owner: "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e", password: "WelcomeToSirius", to: "0x1167A30Dda07a28F105e5D5E8578602dD2FF6596", permission: "read", completion: {response in
+//    print(response)
+//})
 
 class LethAPI {
     let url: String = "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080"
-    var responses: [String: DataResponse<Any>] = [:]
     
     func signUp(password:String, completion : @escaping (DataResponse<Any>)->()) {
         let resource = "/user/signup"
@@ -36,8 +38,6 @@ class LethAPI {
         
         Alamofire.request(url + resource, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
-                //print(response)
-            
                 completion(response)
         }
     }
@@ -49,8 +49,6 @@ class LethAPI {
         
         Alamofire.request(url + resource, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
-                //print(response)
-                self.responses["signIn"] = response
                 
                 completion(response)
         }
@@ -81,8 +79,6 @@ class LethAPI {
                 switch encodingResult {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
-                        debugPrint(response)
-                        //self.responses["addFile"] = response
                         completion(response)
                     }
                 case .failure(let encodingError):
@@ -98,11 +94,20 @@ class LethAPI {
         
         Alamofire.request(url + resource + query, method: .get)
             .responseJSON { response in
-                //print(response)
-                self.responses["fetchFile"] = response
             completion(response)
         }
     
+    }
+    
+    func grantAccess(acl: String, owner: String, password: String, to: String, permission: String, completion : @escaping (DataResponse<Any>)->()) {
+        let resource = "/acl/grant"
+        let parameters: [String: String] = [ "acl": acl, "owner" : owner, "password": password, "to": to, "permission": permission ]
+        
+        
+        Alamofire.request(url + resource, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                completion(response)
+        }
     }
 }
 
