@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2744F13C22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2744F13B22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard */; };
+		2744F13E22E44B2C00723D79 /* PersonalInfoScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744F13D22E44B2B00723D79 /* PersonalInfoScrollViewController.swift */; };
 		4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF4EA122E3C8370093CD9C /* LethAPI.swift */; };
 		4D7BC3DD07FA6BD2AC530F07 /* Pods_MedX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */; };
 		941AF19122E3CED2002687EC /* FilePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941AF19022E3CED2002687EC /* FilePickerViewController.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.release.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.release.xcconfig"; sourceTree = "<group>"; };
+		2744F13B22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalInfoScrollViewController.storyboard; sourceTree = "<group>"; };
+		2744F13D22E44B2B00723D79 /* PersonalInfoScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoScrollViewController.swift; sourceTree = "<group>"; };
 		295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.debug.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.debug.xcconfig"; sourceTree = "<group>"; };
 		4ACF4EA122E3C8370093CD9C /* LethAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LethAPI.swift; sourceTree = "<group>"; };
 		941AF19022E3CED2002687EC /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +171,9 @@
 				CE7949BB22E2A22D00169EFD /* AppDelegate.swift */,
 				CE76560E22E3D894002EC169 /* uploadViewController.swift */,
 				CE4A766B22E41A1900BCCA1C /* DoctorScanViewController.swift */,
+				2744F13D22E44B2B00723D79 /* PersonalInfoScrollViewController.swift */,
 				CE4A766C22E41A1A00BCCA1C /* DoctorTableViewController.swift */,
+				2744F13B22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard */,
 				CE3CFA8222E3840B00B69D89 /* FrontPageViewController.swift */,
 				CE76560A22E3A917002EC169 /* tableViewController.swift */,
 				4ACF4EA022E3C8200093CD9C /* Helpers */,
@@ -264,6 +270,7 @@
 				CE3CFA7F22E383F500B69D89 /* MedX Option Logo Icon.png in Resources */,
 				CE3CFA8022E383F500B69D89 /* MedX Logo.PNG in Resources */,
 				CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */,
+				2744F13C22E44B2200723D79 /* PersonalInfoScrollViewController.storyboard in Resources */,
 				CE3CFA7C22E383F500B69D89 /* MedX Option Import New Record.png in Resources */,
 				CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */,
 				CE3CFA7B22E383F500B69D89 /* MedX Option View Record History.png in Resources */,
@@ -334,6 +341,7 @@
 				CE76560F22E3D894002EC169 /* uploadViewController.swift in Sources */,
 				CE7949BC22E2A22D00169EFD /* AppDelegate.swift in Sources */,
 				CE4A767022E41A1A00BCCA1C /* DoctorTableViewController.swift in Sources */,
+				2744F13E22E44B2C00723D79 /* PersonalInfoScrollViewController.swift in Sources */,
 				CE4A766822E4150C00BCCA1C /* KeychainService.swift in Sources */,
 				CE3CFA8A22E3951B00B69D89 /* QRScannerViewController.swift in Sources */,
 				4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */,
@@ -484,13 +492,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LPXSSA59S3;
+				DEVELOPMENT_TEAM = 38YW76JXDS;
 				INFOPLIST_FILE = MedX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = capehack.MedX;
+				PRODUCT_BUNDLE_IDENTIFIER = capehack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,13 +512,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LPXSSA59S3;
+				DEVELOPMENT_TEAM = 38YW76JXDS;
 				INFOPLIST_FILE = MedX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = capehack.MedX;
+				PRODUCT_BUNDLE_IDENTIFIER = capehack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
