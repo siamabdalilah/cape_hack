@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339" y="128"/>
+            <point key="canvasLocation" x="-881" y="433"/>
         </scene>
         <!--Qr Code View Controller-->
         <scene sceneID="3rU-Ak-AsI">
@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkl-hQ-5dY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360.86956521739131" y="127.90178571428571"/>
+            <point key="canvasLocation" x="28" y="433"/>
         </scene>
         <!--Front Page View Controller-->
         <scene sceneID="j03-pr-qJ0">
@@ -134,7 +134,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="cTf-Z9-k7J" kind="show" id="MX3-UD-MLI"/>
+                                    <segue destination="0oA-od-YQh" kind="show" id="IJZ-vb-PHR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJA-Zj-Hn9" userLabel="PatientCareService">
@@ -209,31 +209,6 @@
                 </imageView>
             </objects>
             <point key="canvasLocation" x="-880" y="1225"/>
-        </scene>
-        <!--Upload View Controller-->
-        <scene sceneID="u0F-wA-zwe">
-            <objects>
-                <viewController storyboardIdentifier="upload" id="cTf-Z9-k7J" customClass="uploadViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xoz-w0-bsG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBr-PN-Vx4">
-                                <rect key="frame" x="126" y="299" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Upload"/>
-                                <connections>
-                                    <action selector="upload:" destination="cTf-Z9-k7J" eventType="touchUpInside" id="9HY-2B-v49"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Vx1-gN-YD3"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FKT-P9-EMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="93" y="1225"/>
         </scene>
         <!--Grant Access-->
         <scene sceneID="q5e-gy-QGf">
@@ -351,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRc-OI-J1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2220.289855072464" y="1208.7053571428571"/>
+            <point key="canvasLocation" x="28" y="1225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o5L-Wr-Ybv">
