@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2764680F22E3FC550027ACCD /* PersonalInfoScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764680E22E3FC550027ACCD /* PersonalInfoScrollViewController.swift */; };
 		2764681122E40F1B0027ACCD /* Garamond.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2764681022E3FC730027ACCD /* Garamond.ttc */; };
+		2764681322E417140027ACCD /* MedX Main Page Dark Theme.png in Resources */ = {isa = PBXBuildFile; fileRef = 2764681222E417140027ACCD /* MedX Main Page Dark Theme.png */; };
 		4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF4EA122E3C8370093CD9C /* LethAPI.swift */; };
 		4D7BC3DD07FA6BD2AC530F07 /* Pods_MedX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */; };
 		941AF19122E3CED2002687EC /* FilePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941AF19022E3CED2002687EC /* FilePickerViewController.swift */; };
@@ -38,6 +39,7 @@
 		13ED751EE7DF5D3232E8E6EA /* Pods-MedX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.release.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.release.xcconfig"; sourceTree = "<group>"; };
 		2764680E22E3FC550027ACCD /* PersonalInfoScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoScrollViewController.swift; sourceTree = "<group>"; };
 		2764681022E3FC730027ACCD /* Garamond.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Garamond.ttc; sourceTree = "<group>"; };
+		2764681222E417140027ACCD /* MedX Main Page Dark Theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MedX Main Page Dark Theme.png"; sourceTree = "<group>"; };
 		295BB4A34463600F7B151A7C /* Pods-MedX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedX.debug.xcconfig"; path = "Target Support Files/Pods-MedX/Pods-MedX.debug.xcconfig"; sourceTree = "<group>"; };
 		4ACF4EA122E3C8370093CD9C /* LethAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LethAPI.swift; sourceTree = "<group>"; };
 		941AF19022E3CED2002687EC /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		CE3CFA6F22E383F500B69D89 /* Logos */ = {
 			isa = PBXGroup;
 			children = (
+				2764681222E417140027ACCD /* MedX Main Page Dark Theme.png */,
 				CE3CFA7022E383F500B69D89 /* MedXOptionConsultAPhysician.png */,
 				CE3CFA7122E383F500B69D89 /* MedX Icon.PNG */,
 				CE3CFA7222E383F500B69D89 /* MedX Option View Record History.png */,
@@ -250,6 +253,7 @@
 				CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */,
 				2764681122E40F1B0027ACCD /* Garamond.ttc in Resources */,
 				CE3CFA7B22E383F500B69D89 /* MedX Option View Record History.png in Resources */,
+				2764681322E417140027ACCD /* MedX Main Page Dark Theme.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
