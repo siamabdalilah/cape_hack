@@ -24,10 +24,7 @@ class ViewController: UIViewController, URLSessionDelegate {
             publicKey.text = "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e"
             password.text = "WelcomeToSirius"
         }
-<<<<<<< HEAD
         api = LethAPI()
-=======
->>>>>>> 578a25ae64b55d8ed63bd6f21d863512572c49dd
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         
