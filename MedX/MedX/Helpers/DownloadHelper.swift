@@ -10,11 +10,7 @@ import Foundation
 import Alamofire
 
 class DownloadHelper{
-    private static func testDownload(){
 
-//            downloadWithMeta(meta: "QmUFL1AsYXFg4hpj9wJfJJaPkLEmxTxz8NWVXabyoASAgY", token: "eyJibG9ja2NoYWluIjoiRVRIIiwiZXRoX2FkZHJlc3MiOiIweGM5MTZDZmU1YzgzZEQ0RkMzYzNCMEJmMmVjMmQ0ZTQwMTc4Mjg3NWUiLCJpYXQiOjE3NDQ5LCJlYXQiOjE4NDQ5fQ.5ldY8UNBeiGcf31LGvkZDrBq9lrU7OWxc9Ii0PdjwgNQMUNtgqwq0td10Yu47AjzHJArM0AhXbDFc9NqvxR-jwE", completion: {_ in print("done")})
-    }
-    
     static func download(files: [String: String], token: String, completion: @escaping (DataResponse<Any>)->()){
         let api = LethAPI()
         for (name, meta) in files {
@@ -23,6 +19,9 @@ class DownloadHelper{
             })
         }
         
+    }
+    static func download(files: [String: String], completion: @escaping (DataResponse<Any>)->()){
+        download(files: files, token: UserDefaults.standard.string(forKey: "token")!, completion: completion)
     }
 
     private static func write(fileName: String, response: DataResponse<Any>, completion: @escaping (DataResponse<Any>)->()){
