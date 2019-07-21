@@ -14,7 +14,7 @@ class ViewController: UIViewController, URLSessionDelegate {
     @IBOutlet weak var publicKey: UITextField!
     @IBOutlet weak var password: UITextField!
     var defaults = UserDefaults.standard
-
+    var api : LethAPI?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,7 +24,7 @@ class ViewController: UIViewController, URLSessionDelegate {
             publicKey.text = "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e"
             password.text = "WelcomeToSirius"
         }
-        
+        api = LethAPI()
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         
@@ -48,48 +48,14 @@ class ViewController: UIViewController, URLSessionDelegate {
             }
         }
     }
-
+    
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
     func signUpRequest(password: String){
-        let endpoint: String = "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signup"
-        guard let createUrl = URL(string: endpoint) else {
-            print("Error: cannot create URL")
-            return
-        }
-        var urlRequest = URLRequest(url: createUrl)
-        urlRequest.httpMethod = "POST"
-        let input: [String: Any] = ["password": password]
-        let json: Data
-        do {
-            json = try JSONSerialization.data(withJSONObject: input, options: [])
-            urlRequest.httpBody = json
-        } catch {
-            print("Error: cannot create JSON from todo")
-            return
-        }
-        
-        let session = URLSession(
-            configuration: URLSessionConfiguration.default,
-            delegate: self, // DO NOT FORGET YOUR OBJECT HERE!!
-            delegateQueue: nil)
-        
-        let task = session.dataTask(with: urlRequest) {
-            (data, response, error) in
-            guard error == nil else {
-                print("error calling POST on /todos/1")
-                print(error)
-                return
-            }
-            guard let responseData = data else {
-                print("Error: did not receive data")
-                return
-            }
-            
-            // parse the result as JSON, since that's what the API provides
+        api!.signUp(password: password, completion: {response in
             do {
-                guard let receivedPub = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any]
+                guard let receivedPub = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any]
                     else {
                         print("Could not get JSON from responseData as dictionary")
                         return
@@ -104,55 +70,18 @@ class ViewController: UIViewController, URLSessionDelegate {
                 self.signInRequest(publicKey: sqliteOps.instance.readFromSQLite(table: "pub"), password: password)
             } catch  {
                 print("error parsing response from POST on /todos")
-
                 return
             }
-        }
-        task.resume()
+        })
     }
     func signInRequest(publicKey: String, password: String){
-        let endpoint: String = "http://ec2-18-222-226-162.us-east-2.compute.amazonaws.com:8080/user/signin"
-        guard let createUrl = URL(string: endpoint) else {
-            print("Error: cannot create URL")
-            return
-        }
-        var urlRequest = URLRequest(url: createUrl)
-        urlRequest.httpMethod = "POST"
-        let input: [String: Any] = ["account": publicKey,"password": password]
-        let json: Data
-        do {
-            json = try JSONSerialization.data(withJSONObject: input, options: [])
-            urlRequest.httpBody = json
-        } catch {
-            print("Error: cannot create JSON from todo")
-            return
-        }
-        
-        let session = URLSession(
-            configuration: URLSessionConfiguration.default,
-            delegate: self, // DO NOT FORGET YOUR OBJECT HERE!!
-            delegateQueue: nil)
-        print("up to here")
-        let task = session.dataTask(with: urlRequest) {
-            (data, response, error) in
-            guard error == nil else {
-                print("error calling POST on /todos/1")
-                print(error)
-                return
-            }
-            guard let responseData = data else {
-                print("Error: did not receive data")
-                return
-            }
-            
-            // parse the result as JSON, since that's what the API provides
+        api!.signIn(account: publicKey, password: password, completion: {response in
             do {
-                guard let receivedPub = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any]
+                guard let receivedPub = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any]
                     else {
                         print("Could not get JSON from responseData as dictionary")
                         return
                 }
-                
                 guard let token = receivedPub["token"] as? String else {
                     print("cannot login")
                     return
@@ -164,21 +93,19 @@ class ViewController: UIViewController, URLSessionDelegate {
                         return
                     }
                 }
-
                 DispatchQueue.main.async {
                     let nav = self.storyboard?.instantiateViewController(withIdentifier: "nav")
                     self.present(nav!, animated: true, completion: nil)
                 }
-
+                
             } catch  {
                 print("error parsing response from POST on /todos")
                 return
             }
-        }
-        task.resume()
+        })
     }
-
     
-
+    
+    
 }
 
