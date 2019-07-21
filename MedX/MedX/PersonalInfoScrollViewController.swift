@@ -10,7 +10,11 @@ import UIKit
 
 class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    
+    @IBOutlet weak var PreferredHospitalList: UITextView!
+    
     @IBOutlet weak var txtDatePicker: UITextField!
+    
     @IBOutlet weak var GenderField: UITextField!
     
     @IBOutlet weak var BloodTypeField: UITextField!
@@ -30,6 +34,9 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
         bloodType = ["A-positive", "A-negative", "B-positive", "B-negative", "AB-positive", "AB-negative", "O-positive", "O-negative"]
         
         showDatePicker()
+        
+        PreferredHospitalList!.layer.borderWidth = 1
+        PreferredHospitalList!.layer.borderColor = UIColor.black.cgColor
     }
     
     func showDatePicker(){

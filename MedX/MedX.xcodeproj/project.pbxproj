@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2764680F22E3FC550027ACCD /* PersonalInfoScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764680E22E3FC550027ACCD /* PersonalInfoScrollViewController.swift */; };
+		2764681122E40F1B0027ACCD /* Garamond.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2764681022E3FC730027ACCD /* Garamond.ttc */; };
 		4ACF4EA222E3C8370093CD9C /* LethAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF4EA122E3C8370093CD9C /* LethAPI.swift */; };
 		4D7BC3DD07FA6BD2AC530F07 /* Pods_MedX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD3ACD3CFAA7A94AE474E53 /* Pods_MedX.framework */; };
 		941AF19122E3CED2002687EC /* FilePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941AF19022E3CED2002687EC /* FilePickerViewController.swift */; };
@@ -247,6 +248,7 @@
 				CE3CFA7922E383F500B69D89 /* MedXOptionConsultAPhysician.png in Resources */,
 				CE3CFA7C22E383F500B69D89 /* MedX Option Import New Record.png in Resources */,
 				CE7949C122E2A22D00169EFD /* Main.storyboard in Resources */,
+				2764681122E40F1B0027ACCD /* Garamond.ttc in Resources */,
 				CE3CFA7B22E383F500B69D89 /* MedX Option View Record History.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
