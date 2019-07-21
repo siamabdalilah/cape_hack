@@ -29,7 +29,7 @@ class MedHisAndLabResult:UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
+        self.view.backgroundColor = UIColor.white
         showDatePicker()
         RadiationExperienceField!.layer.borderWidth = 1
         RadiationExperienceField!.layer.borderColor = UIColor.black.cgColor

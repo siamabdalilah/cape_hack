@@ -16,7 +16,7 @@ class MedicalHistoryScrollView:UIViewController, UITextFieldDelegate {
     @IBOutlet weak var AllergyField: UITextView!
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
+        self.view.backgroundColor = UIColor.clear
         ChronicHealthCondition!.layer.borderWidth = 1
         ChronicHealthCondition!.layer.borderColor = UIColor.black.cgColor
         

@@ -94,7 +94,7 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
             let jsonString = String(decoding: jsonData,as: UTF8.self)
             print(jsonString)
             let data: Data? = jsonString.data(using: .utf8)
-            api.addFile(name: "personal_info", type: "json", data: data!, completion: {response in
+            api.addFile(name: "personal_info.jsonq", type: "application/json", data: data!, completion: {response in
                 do {
                     guard let receivedPub = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any]
                         else {
@@ -110,6 +110,7 @@ class PersonalInfoScrollViewController:UIViewController, UITextFieldDelegate, UI
                     }
                     sqliteOps.instance.createTableInSQLiteFiles(tableName: "userFiles")
                     sqliteOps.instance.prepareAndInsertToSQLiteFiles(table: "userFiles", location: loc, name: "personal_info", acl: acl)
+                    print(String(decoding: response.data!, as: UTF8.self))
                 } catch  {
                     print("error parsing response from POST on /todos")
                     return

@@ -11,7 +11,7 @@ class FamilyMedicalHistoryScrollView: UIViewController, UITextFieldDelegate {
         @IBOutlet weak var FamilyMedicalHistoryField: UITextView!
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.5836969018, green: 0.7517433167, blue: 0.8807654977, alpha: 1)
+        self.view.backgroundColor = UIColor.white
         FamilyMedicalHistoryField!.layer.borderWidth = 1
         FamilyMedicalHistoryField!.layer.borderColor = UIColor.black.cgColor
     }

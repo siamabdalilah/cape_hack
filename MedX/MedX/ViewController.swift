@@ -23,7 +23,9 @@ class ViewController: UIViewController, URLSessionDelegate {
         var key = sqliteOps.instance.readFromSQLite(table: "pub")
         print(key)
         if key != "" {
-            publicKey.text = key
+            publicKey.text = "0xc916cfe5c83dd4fc3c3b0bf2ec2d4e401782875e"
+            password.text = "WelcomeToSirius"
+            //publicKey.text = key
         }
         api = LethAPI()
         //Looks for single or multiple taps.
