@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-588.40579710144937" y="127.90178571428571"/>
+            <point key="canvasLocation" x="-881" y="433"/>
         </scene>
         <!--Qr Code View Controller-->
         <scene sceneID="3rU-Ak-AsI">
@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkl-hQ-5dY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360.86956521739131" y="127.90178571428571"/>
+            <point key="canvasLocation" x="-987" y="2916"/>
         </scene>
         <!--Personal Info Scroll View Controller-->
         <scene sceneID="4kM-De-79h">
@@ -430,6 +430,9 @@
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="pFh-5e-Eeq" kind="show" id="XlH-Rg-E7n"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS0-ow-WWj" userLabel="ImportNewRecord">
                                 <rect key="frame" x="116" y="244" width="182" height="45"/>
@@ -437,13 +440,16 @@
                                 <color key="backgroundColor" red="0.44598835710000001" green="0.63513904809999999" blue="0.77864563470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Import New Record"/>
+                                <state key="normal" title="Upload Information"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="0oA-od-YQh" kind="show" id="IJZ-vb-PHR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJA-Zj-Hn9" userLabel="PatientCareService">
                                 <rect key="frame" x="116" y="391" width="182" height="45"/>
@@ -468,7 +474,7 @@
                                 <color key="backgroundColor" red="0.44598835710000001" green="0.63513904809999999" blue="0.77864563470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="View Record History"/>
+                                <state key="normal" title="Enter information"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -519,7 +525,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="-339.13043478260875" y="784.82142857142856"/>
+            <point key="canvasLocation" x="-880" y="1225"/>
         </scene>
         <!--Grant Access-->
         <scene sceneID="q5e-gy-QGf">
@@ -530,12 +536,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LhL-7C-VaY">
-                                <rect key="frame" x="0.0" y="135" width="414" height="727"/>
+                                <rect key="frame" x="0.0" y="135" width="414" height="673"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Granting to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRs-ra-bBU">
-                                <rect key="frame" x="25" y="87" width="364" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRs-ra-bBU">
+                                <rect key="frame" x="134" y="87" width="255" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Granting to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8X6-c6-mZt">
+                                <rect key="frame" x="20" y="106" width="91" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -546,7 +559,11 @@
                         <viewLayoutGuide key="safeArea" id="SJn-Ay-kvQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Grant Access" id="iks-eM-WOE">
-                        <barButtonItem key="rightBarButtonItem" title="OK" id="yDW-6l-ept"/>
+                        <barButtonItem key="rightBarButtonItem" title="OK" id="yDW-6l-ept">
+                            <connections>
+                                <action selector="generate:" destination="9Jd-tT-AnI" id="Ngp-mg-Z7I"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="recordLists" destination="LhL-7C-VaY" id="PPt-Hg-54C"/>
@@ -555,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0c-fV-S7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="1595"/>
+            <point key="canvasLocation" x="-1993" y="2916"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="mFt-yd-7Rl">
@@ -566,7 +583,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zje-KY-ewx" customClass="QRScannerView" customModule="MedX" customModuleProvider="target">
-                                <rect key="frame" x="20" y="288" width="374" height="320"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="719"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="Piy-de-0RP"/>
@@ -584,11 +601,70 @@
                     </view>
                     <connections>
                         <outlet property="scannerView" destination="zje-KY-ewx" id="dlb-31-cjq"/>
+                        <segue destination="9Jd-tT-AnI" kind="show" id="qQa-Hu-cvW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed4-6o-EHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="925" y="1420"/>
+            <point key="canvasLocation" x="-986" y="2158"/>
+        </scene>
+        <!--Doctor Scan View Controller-->
+        <scene sceneID="ToD-rg-T4s">
+            <objects>
+                <viewController id="pFh-5e-Eeq" customClass="DoctorScanViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JLY-4S-Bon">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzS-LK-E3z" customClass="QRScannerView" customModule="MedX" customModuleProvider="target">
+                                <rect key="frame" x="87" y="291" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="NKM-aN-trE"/>
+                    </view>
+                    <connections>
+                        <outlet property="scannerView" destination="QzS-LK-E3z" id="BrA-zd-0Cy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeJ-Ee-nbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.637681159420293" y="2153.5714285714284"/>
+        </scene>
+        <!--Doctor Table View Controller-->
+        <scene sceneID="ueP-Nd-nvN">
+            <objects>
+                <viewController storyboardIdentifier="doctortable" id="NNw-Pi-Kg9" customClass="DoctorTableViewController" customModule="MedX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V4J-9w-WuR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Ww-ic-kmh">
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Granting to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PC-zb-v0R">
+                                <rect key="frame" x="20" y="82" width="91" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HQO-JF-gKc"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5Ww-ic-kmh" id="Yoy-zH-fiT"/>
+                        <outlet property="toLabel" destination="1PC-zb-v0R" id="yvv-oL-pO8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m4Y-yv-xng" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907.24637681159425" y="2162.9464285714284"/>
         </scene>
         <!--File Picker View Controller-->
         <scene sceneID="njw-rk-zSN">
@@ -637,7 +713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRc-OI-J1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2220.289855072464" y="1208.7053571428571"/>
+            <point key="canvasLocation" x="28" y="1225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o5L-Wr-Ybv">
@@ -655,7 +731,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmJ-xw-16i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1249.2753623188407" y="784.82142857142856"/>
+            <point key="canvasLocation" x="-1829" y="1225"/>
         </scene>
     </scenes>
     <resources>
