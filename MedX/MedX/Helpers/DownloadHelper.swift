@@ -22,7 +22,6 @@ class DownloadHelper{
                 write(fileName: name, response: response, completion: completion)
             })
         }
-        
     }
 
     private static func write(fileName: String, response: DataResponse<Any>, completion: @escaping (DataResponse<Any>)->()){
