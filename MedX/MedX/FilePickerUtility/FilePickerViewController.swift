@@ -80,11 +80,7 @@ class FilePickerViewController: UIViewController {
     }
     @IBOutlet weak var numFiles: UITextView!
     
-    private var filesDict = [String: Data]() {
-        didSet {
-            numFiles.text = "Number of Files: \(String(filesDict.count))"
-        }
-    }
+    private var filesDict = [String: Data]()
   
     private func checkUploadability() -> Bool{
         return true
