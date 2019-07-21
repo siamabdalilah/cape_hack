@@ -11,9 +11,17 @@ import UIKit
 class DoctorScanViewController: UIViewController {
 
     
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view4: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view1.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6508722175)
+        view2.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6508722175)
+        view3.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6508722175)
+        view4.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6508722175)
+        
         // Do any additional setup after loading the view.
     }
     
