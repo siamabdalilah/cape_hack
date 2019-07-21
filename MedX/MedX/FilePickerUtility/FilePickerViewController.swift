@@ -35,8 +35,8 @@ class FilePickerViewController: UIViewController {
         for (name, data) in filesToUpload {
             let ext = String(name.split(separator: ".").last ?? "")
             if let mimeType = types[ext] {
-                //api.addFile(name: name, type: mimeType, data: data)
-                print(String(decoding: data, as: UTF8.self))
+                api.addFile(name: name, type: mimeType, data: data)
+//                print(String(decoding: data, as: UTF8.self))
                 print("file uploaded")
             } else {
                 // TODO
@@ -49,6 +49,7 @@ class FilePickerViewController: UIViewController {
         didSet {
             selectedFiles.allowsSelection = false
             selectedFiles.delegate = self
+            selectedFiles.dataSource = self
         }
     }
     @IBOutlet weak var numFiles: UITextView!
@@ -134,8 +135,19 @@ extension FilePickerViewController: UIDocumentPickerDelegate{
 }
 
 extension FilePickerViewController: UITableViewDelegate{
-    func tableView(table: UITableView, willDisplay: UITableViewCell, forRowAt: IndexPath){
-//        willDisplay.textLabel = table.dataSource!.
-    }
+   
+}
 
+extension FilePickerViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.files.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style:.subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.text = "\(self.files[indexPath.row].lastPathComponent)"
+        return cell
+    }
+    
+    
 }
