@@ -1,7 +1,7 @@
 //
 //  tableViewController.swift
 //  MedX
-//
+//  
 //  Created by Xiangmin Zhang on 7/20/19.
 //  Copyright © 2019 user. All rights reserved.
 //
@@ -64,10 +64,10 @@ class tableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.api!.grantAccess(acl: self.records[indexPath.row].acl, owner: publicKey, password: KeychainService.loadPassword(service: "lightstream", account: publicKey)!, to: self.toLabel.text!, permission: "read", completion: {response in
             })
             if self.first {
-                self.sharedFiles += "\"record\": {\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
+                self.sharedFiles += " {\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
                 self.first = false
             }else{
-                self.sharedFiles += ",\"record\":{\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
+                self.sharedFiles += ",{\"Name\":\"\(self.records[indexPath.row].name)\",\"Meta\":\"\(self.records[indexPath.row].location)\"}"
             }
         })
         action.backgroundColor = UIColor.green

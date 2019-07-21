@@ -18,9 +18,9 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     
     
     
-
+    
     var hospital: String?
-
+    
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     func convertQRToJSonArray(){
         //first step is to convert json string to json object
         var string = dataString!
-//        string = "{\"record\": \(string)}"
+        string = "{\"records\": \(string)}"
         let data = string.data(using: .utf8)!
         print("string: \(string)")
         print("data: \(data)")
@@ -47,10 +47,10 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
         do {
             let object = try decoder.decode(Records.self, from: data)
             for index in 0..<object.records.count{
-//                fileNumbers.append(object.records[index].fileNumber)
+                //                fileNumbers.append(object.records[index].fileNumber)
                 fileNames.append(object.records[index].Name)
-           fileAddresses.append(object.records[index].Meta)
-           // print(object.Name)
+                fileAddresses.append(object.records[index].Meta)
+                // print(object.Name)
             }
         } catch let error as NSError {
             print("error: \(error)")
@@ -126,15 +126,15 @@ class DoctorTableViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
